@@ -1,5 +1,5 @@
 # Das Progamm
-NAME 				:=	zombie
+NAME 				:=	weaponz
 
 # Compiler
 CXX					:=	c++

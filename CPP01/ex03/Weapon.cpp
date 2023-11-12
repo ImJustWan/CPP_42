@@ -2,18 +2,24 @@
 
 Weapon::Weapon( std::string weapon ) : _weaponName( weapon ) {
 
-	std::cout << "Constructor called" << std::endl;
+	// std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 Weapon::~Weapon( void ) {
 
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 	return;
+}
+
+std::string	Weapon::getType ( void ) const {
+
+	return this->_weaponName;
 }
 
 void    Weapon::setType ( std::string newWeapon ) {
 
-	std::cout << "Weapon's type is " << newWeapon << std::endl;
+	this->_weaponName = newWeapon;
+	// std::cout << "Weapon's type is " << newWeapon << std::endl;
 	return;
 }

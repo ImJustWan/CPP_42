@@ -1,25 +1,27 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB( std::string name ) : _name( name) {
+HumanB::HumanB( std::string name ) : _name( name ), _weapon( NULL ){
 
-	std::cout << "Constructor called" << std::endl;
+	// std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 HumanB::~HumanB( void ) {
 
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
+	return;
+}
+
+void    HumanB::setWeapon ( const Weapon& weaponRef ) {
+
+	this->_weapon = &weaponRef;
+    // std::cout << "HumanB's weapon is " << weaponRef._weaponName << std::endl;
 	return;
 }
 
 void	HumanB::attack( void ) {
 
-	std::cout << this->_name << " is attacking !" << std::endl;
+	if ( this->_weapon != NULL )
+		std::cout << this->_name << " is attacking with " << this->_weapon->_weaponName << std::endl;
 
-}
-
-void    HumanB::setWeapon ( Weapon newWeapon ) {
-
-    std::cout << "HumanB's new weapon is " << newWeapon._weaponName << std::endl;
-	return;
 }

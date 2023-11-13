@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string.h>
 #include <string>
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Harl.hpp"
 
 int main() {
+
+	Harl	Harl;
 
 	return 0;
 }

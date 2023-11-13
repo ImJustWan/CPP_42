@@ -14,7 +14,8 @@ INC					:=	PhoneBook.hpp \
 # Sources	
 SRCS				:=	main.cpp \
 						PhoneBook.cpp \
-						Contact.cpp
+						Contact.cpp \
+						Contact_accessors.cpp
 		
 # Objects
 OBJS_PATH			:=	./objs

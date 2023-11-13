@@ -13,9 +13,8 @@ public :
 	Contact Contacts[8];
 
 	void		AddContact( Contact &NewContact );
-	void    	DisplayRepertory( PhoneBook &repertory ) const;
+	int	    	DisplayRepertory( PhoneBook &repertory ) const;
 	void    	DisplayContact( Contact &ZeContact ) const;
-	void		clearFirst( Contact &Contact );
 };
 
 #endif

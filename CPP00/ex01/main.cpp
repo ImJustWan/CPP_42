@@ -25,10 +25,7 @@ int main() {
 			if ( i < 8 )
 				repertory.AddContact( repertory.Contacts[i] );
 			else
-			{
-				repertory.clearFirst( repertory.Contacts[0] );
 				repertory.AddContact( repertory.Contacts[0] );
-			}
 			i++;
 		}
 		else if ( str == "SEARCH" )

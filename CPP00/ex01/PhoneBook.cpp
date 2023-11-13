@@ -14,61 +14,39 @@ PhoneBook::~PhoneBook( void ) {
 	return;	
 }
 
-
-void	PhoneBook::clearFirst( Contact &First ) {
-
-	First.FirstName = "";
-	First.LastName = "";
-	First.NickName = "";
-	First.PhoneNumber = "";
-	First.DarkestSecret = "";
-	return;
-}
-
-
 void	PhoneBook::DisplayContact( Contact &ZeContact ) const {
 
-
-	std::cout << "FirstName is :" << ZeContact.FirstName << std::endl;
-	std::cout << "LastName is :" << ZeContact.LastName << std::endl;
-	std::cout << "NickName is :" << ZeContact.NickName << std::endl;
-	std::cout << "PhoneNumber is :" << ZeContact.PhoneNumber << std::endl;
-	std::cout << "DarkestSecret is :" << ZeContact.DarkestSecret << std::string(2, '\n') << std::endl;
+	std::cout << "FirstName is: " << ZeContact.getFirstName() << std::endl;
+	std::cout << "LastName is: " << ZeContact.getLastName() << std::endl;
+	std::cout << "NickName is: " << ZeContact.getNickName() << std::endl;
+	std::cout << "PhoneNumber is: " << ZeContact.getPhoneNumber() << std::endl;
+	std::cout << "DarkestSecret is: " << ZeContact.getDarkestSecret() << std::string(2, '\n') << std::endl;
 	return;
 }
 
+std::string	listenInput(std::string str)
+{
+	while (str.size() == 0)
+		std::getline( std::cin, str);
+	return (str);
+}
 
 void	PhoneBook::AddContact( Contact &NewContact ) {
 
 	std::string validNumbers = " 0123456789+-()";
-	std::string str = "tmp";
 
 	std::cout << "\nYou're adding a new contact !\n"  << std::endl;
 
 	std::cout << "Input FirstName: ";
-	while ( NewContact.FirstName.size() == 0 )
-		std::getline( std::cin, NewContact.FirstName );
+	NewContact.setFirstName(listenInput(""));
 	std::cout << "Input LastName: ";
-	while ( NewContact.LastName.size() == 0 )
-		std::getline( std::cin, NewContact.LastName );
+	NewContact.setLastName(listenInput(""));
 	std::cout << "Input NickName: ";
-	while ( NewContact.NickName.size() == 0 )
-		std::getline( std::cin, NewContact.NickName );
+	NewContact.setNickName(listenInput(""));
 	std::cout << "Input PhoneNumber: ";
-	while ( NewContact.PhoneNumber.size() == 0 )
-	{
-		std::getline( std::cin, str );
-		if (str.find_first_not_of(validNumbers) != std::string::npos)
-		{
-			std::cout << validNumbers.find_first_not_of(str) << std::endl;
-			std::cout << "Wrong PhoneNumber format, try again: " << std::endl;
-		}
-		else
-			NewContact.PhoneNumber = str;
-	}
+	NewContact.setPhoneNumber("");
 	std::cout << "Input DarkestSecret: ";
-	while ( NewContact.DarkestSecret.size() == 0 )
-		std::getline( std::cin, NewContact.DarkestSecret );	
+	NewContact.setDarkestSecret(listenInput(""));	
 	
 	std::cout << "NewContact added ~\n" << std::endl;
 
@@ -87,7 +65,7 @@ void	_printString( std::string str )
 	return;
 }
 
-void	PhoneBook:: DisplayRepertory( PhoneBook &repertory ) const {
+int	PhoneBook:: DisplayRepertory( PhoneBook &repertory ) const {
 
 	int	index = 0;
 
@@ -97,32 +75,24 @@ void	PhoneBook:: DisplayRepertory( PhoneBook &repertory ) const {
 	{
 		std::cout << std::setw( 10 ) << i + 1;
 		std::cout << "|";
-		_printString( repertory.Contacts[i].FirstName );
+		_printString( repertory.Contacts[i].getFirstName() );
 		std::cout << "|";
-		_printString( repertory.Contacts[i].LastName );
+		_printString( repertory.Contacts[i].getLastName() );
 		std::cout << "|";
-		_printString( repertory.Contacts[i].NickName );
+		_printString( repertory.Contacts[i].getNickName() );
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
-	std::cout << "Pick an index ~\n" << std::endl;
 
+	std::cout << "\nPick an index ~\n" << std::endl;
 	std::string str;
 	getline( std::cin, str );
 	if ( !str.size() || str.size() != 1 || !isdigit(str[0]) )
-	{
-		std::cout << "\nInvalid index, back to the repertory\n" << std::endl;
-		return ;
-	}
+		return (std::cout << "\nInvalid index  back to the repertory (''-_-)ゞ\n" << std::endl, 1);
+	
 	index = atoi( str.c_str() );
-	std::cout << "Index is : " << index << std::endl;
+	std::cout << "\nIndex is : " << index << std::endl;
 	if ( index >= 1 && index <= 8 )
-	{
-		std::cout << "Index is : " << index << std::endl;
-		DisplayContact( repertory.Contacts[index - 1] );
-	}
-	else
-		std::cout << "WTF you're doing bro ? Try again\n" << std::endl;
-	return;
+		return (DisplayContact( repertory.Contacts[index - 1] ), 0);
+	return (std::cout << "WTF you're doing bro ? Try again (╬ Ò ‸ Ó)ゞ\n" << std::endl, 0);
 }
 

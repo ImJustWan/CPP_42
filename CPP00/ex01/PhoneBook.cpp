@@ -27,7 +27,14 @@ void	PhoneBook::DisplayContact( Contact &ZeContact ) const {
 std::string	listenInput(std::string str)
 {
 	while (str.size() == 0)
+	{
+		if (std::cin.eof())
+		{
+			std::cout << "\nIf you take it that way, bye ゞ(╬ Ò.Ó)ゞ\n"  << std::endl;
+			exit (1);
+		}
 		std::getline( std::cin, str);
+	}
 	return (str);
 }
 
@@ -87,12 +94,12 @@ int	PhoneBook:: DisplayRepertory( PhoneBook &repertory ) const {
 	std::string str;
 	getline( std::cin, str );
 	if ( !str.size() || str.size() != 1 || !isdigit(str[0]) )
-		return (std::cout << "\nInvalid index  back to the repertory (''-_-)ゞ\n" << std::endl, 1);
+		return (std::cout << "\nInvalid index  back to the repertory ('-_-)ゞ\n" << std::endl, 1);
 	
 	index = atoi( str.c_str() );
 	std::cout << "\nIndex is : " << index << std::endl;
 	if ( index >= 1 && index <= 8 )
 		return (DisplayContact( repertory.Contacts[index - 1] ), 0);
-	return (std::cout << "WTF you're doing bro ? Try again (╬ Ò ‸ Ó)ゞ\n" << std::endl, 0);
+	return (std::cout << "WTF you're doing bro ? Try again ゞ(╬ Ò ‸ Ó)ゞ\n" << std::endl, 0);
 }
 

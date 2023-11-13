@@ -15,13 +15,13 @@ HumanB::~HumanB( void ) {
 void    HumanB::setWeapon ( const Weapon& weaponRef ) {
 
 	this->_weapon = &weaponRef;
-    // std::cout << "HumanB's weapon is " << weaponRef._weaponName << std::endl;
+    // std::cout << "HumanB's weapon is " << weaponRef._weaponType << std::endl;
 	return;
 }
 
 void	HumanB::attack( void ) {
 
 	if ( this->_weapon != NULL )
-		std::cout << this->_name << " is attacking with " << this->_weapon->_weaponName << std::endl;
+		std::cout << this->_name << " is attacking with " << this->_weapon->_weaponType << std::endl;
 
 }

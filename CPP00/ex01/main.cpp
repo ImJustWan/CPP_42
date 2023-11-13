@@ -17,7 +17,7 @@ int main() {
 		while ( str.size() == 0 )
 		{
 			if (std::cin.eof())
-				return 0;
+				return (std::cout << "\nIf you take it that way, bye ゞ(╬ Ò.Ó)ゞ\n"  << std::endl, 0);
 			std::getline( std::cin, str );
 		}
 		if ( str == "ADD")

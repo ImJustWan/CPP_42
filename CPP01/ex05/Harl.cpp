@@ -17,13 +17,11 @@ Harl::~Harl(void) {
 void Harl::complain( std::string level ) {
 
     std::string complaint[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
     void(Harl::*functionPtr[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     for (int i = 0; i < 4; i++)
         if (level == complaint[i])
             (this->*functionPtr[i])();
-
     return;
 }
 
@@ -31,7 +29,7 @@ void Harl::debug( void ) {
 
     std::cout << _BOLD _FOREST_GREEN _BLINK "[DEBUG]" _END << std::endl;
     std::cout << _ITALIC _BOLD _UNDERLINE "Harl:" _END << " ";
-    std::cout << _ITALIC _GREY "I needed an objective frame of reference by which to judge the experience of your company. Somewhere between four and five blowsto the head, I place it.\n\n" _END << std::endl;
+    std::cout << _ITALIC _GREY "I needed an objective frame of reference by which to judge the experience of your company. Somewhere between four and five blows to the head, I place it.\n\n" _END << std::endl;
     return;
 }
 

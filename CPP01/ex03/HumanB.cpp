@@ -13,15 +13,13 @@ HumanB::~HumanB( void ) {
 }
 
 void    HumanB::setWeapon ( const Weapon& weaponRef ) {
-
 	this->_weapon = &weaponRef;
-    // std::cout << "HumanB's weapon is " << weaponRef._weaponType << std::endl;
-	return;
 }
 
 void	HumanB::attack( void ) {
 
 	if ( this->_weapon != NULL )
 		std::cout << this->_name << " is attacking with " << this->_weapon->_weaponType << std::endl;
-
+	else
+		std::cout << this->_name << " is trying to go barehands, they'll get hurt ノಠ_ಠノ " << std::endl;
 }

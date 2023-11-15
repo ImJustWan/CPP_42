@@ -1,6 +1,5 @@
 #include "Account.hpp"
 #include <iostream>
-// #include <chrono>
 
 Account::Account( int initial_deposit ) : _amount( initial_deposit ) {
 
@@ -26,28 +25,23 @@ Account::~Account( void ) {
 }
 
 int	Account::getNbAccounts( void ) {
-
 	return Account::_nbAccounts;
-	// return 0;
 }
 
 int	Account::getTotalAmount( void ) {
-
 	return Account::_totalAmount;
-	// return 0;
 }
 
 int	Account::getNbDeposits( void ) {
-
-	// std::cout << "nb deposits: " << Account::_totalNbDeposits ;
 	return Account::_totalNbDeposits;
-	// return 8;
 }
 
 int	Account::getNbWithdrawals( void ) {
-
 	return Account::_totalNbWithdrawals;
-	// return 0;
+}
+
+int	Account::checkAmount( void ) const {
+	return this->_amount;
 }
 
 void	Account::_displayTimestamp( void ) {
@@ -61,10 +55,11 @@ void	Account::_displayTimestamp( void ) {
 	std::cout << ltm->tm_hour << ltm->tm_min << ltm->tm_sec << "] ";
 }
 
+
 void	Account::displayAccountsInfos( void ) {
 
-	_displayTimestamp();
 	/*for each account*/
+	_displayTimestamp();
 	std::cout << "accounts:" << Account::getNbAccounts();
 	std::cout << ";total:" << Account::getTotalAmount();
 	std::cout << ";deposits:" << Account::getNbDeposits();
@@ -106,11 +101,6 @@ bool	Account::makeWithdrawal( int withdrawal ) {
 		Account::_totalAmount -= withdrawal;
 	}
 	return 0;
-}
-
-int	Account::checkAmount( void ) const {
-
-	return this->_amount;
 }
 
 void	Account::displayStatus( void ) const {

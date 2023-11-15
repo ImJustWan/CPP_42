@@ -95,7 +95,6 @@ int	PhoneBook:: DisplayRepertory( PhoneBook &repertory ) const {
 	getline( std::cin, str );
 	if ( !str.size() || str.size() != 1 || !isdigit(str[0]) )
 		return (std::cout << "\nInvalid index  back to the repertory ('-_-)ゞ\n" << std::endl, 1);
-	
 	index = atoi( str.c_str() );
 	std::cout << "\nIndex is : " << index << std::endl;
 	if ( index >= 1 && index <= 8 )

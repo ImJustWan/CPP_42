@@ -11,7 +11,7 @@ public:
 
     int getValue( void ) const;
 
-    Integer &   operator=( Integer const & rhs);
+    Integer &   operator=( Integer const & rhs); //right hand side
     Integer     operator+( Integer const & rhs) const;
 
 private:

@@ -1,5 +1,5 @@
 # Das Progamm
-NAME 				:=	weaponz
+NAME 				:=	fixedstonks
 
 # Compiler
 CXX					:=	c++

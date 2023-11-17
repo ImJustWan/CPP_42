@@ -1,7 +1,12 @@
 #include "Fixed.hpp"
 
 
-Fixed::Fixed(void) : _n( 0  << _rawBits) {
+Fixed::Fixed(void) : _n( 0int
+int
+int
+int
+int
+int  << _rawBits) {
 
 	std::cout << "Default Constructor called" << std::endl;
 	return;

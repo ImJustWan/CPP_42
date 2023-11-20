@@ -1,4 +1,5 @@
 #include "HumanB.hpp"
+#include "colors.hpp"
 
 HumanB::HumanB( std::string name ) : _name( name ), _weapon( NULL ){
 
@@ -19,7 +20,7 @@ void    HumanB::setWeapon ( const Weapon& weaponRef ) {
 void	HumanB::attack( void ) {
 
 	if ( this->_weapon != NULL )
-		std::cout << this->_name << " is attacking with " << this->_weapon->_weaponType << std::endl;
+		std::cout << _PINK << this->_name << " is attacking with " << this->_weapon->_weaponType << " !" _END << std::endl;
 	else
-		std::cout << this->_name << " is trying to go barehands, they'll get hurt ノಠ_ಠノ " << std::endl;
+		std::cout << _PINK << this->_name << " is trying to go barehands, fortunately she knows kung fu ノಠ_ಠノ" _END << std::endl;
 }

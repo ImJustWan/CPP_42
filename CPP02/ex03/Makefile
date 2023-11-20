@@ -1,5 +1,5 @@
 # Das Progamm
-NAME 				:=	weaponz
+NAME 				:=	bsp
 
 # Compiler
 CXX					:=	c++

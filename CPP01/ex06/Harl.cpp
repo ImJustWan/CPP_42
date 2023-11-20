@@ -1,4 +1,5 @@
 #include "Harl.hpp"
+#include "colors.hpp"
 
 typedef void (*COMPLAINS);
 

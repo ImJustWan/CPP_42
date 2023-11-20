@@ -15,7 +15,7 @@ Fixed::Fixed( Fixed const & src ) {
 
 Fixed::~Fixed(void) {
 
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
     return;
 }
 
@@ -29,7 +29,7 @@ Fixed & Fixed::operator=( Fixed const & rhs ) {
 
 int Fixed::getRawBits( void ) const {
 
-    std::cout << "getRawBits member function called" << std::endl;
+    // std::cout << "getRawBits member function called" << std::endl;
 	return this->_n;
 }
 

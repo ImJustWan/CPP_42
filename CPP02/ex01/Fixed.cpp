@@ -1,33 +1,34 @@
 #include "Fixed.hpp"
+#include "colors.hpp"
 
 Fixed::Fixed(void) : _n( 0 ) {
 
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << _ITALIC "Default Constructor called" _END << std::endl;
 	return;
 }
 
 Fixed::Fixed( int const n ) : _n( n << _rawBits) {
 
-	std::cout << "Int Parametric Constructor called" << std::endl;
+	std::cout << _ITALIC "Int Parametric Constructor called" _END << std::endl;
 	return;
 }
 
 Fixed::Fixed( float const f ):  _n(static_cast<int>(f * (1 << _rawBits))){
 
-	std::cout << "Float Parametric Constructor called" << std::endl;
+	std::cout << _ITALIC "Float Parametric Constructor called" _END << std::endl;
 	return;
 }
 
 Fixed::Fixed( Fixed const & src ) : _n(src._n) {
 
-	std::cout << "Copy Constructor called" << std::endl;
+	std::cout << _ITALIC "Copy Constructor called" _END << std::endl;
 	*this = src;
 	return;
 }
 
 Fixed::~Fixed(void) {
 
-    std::cout << "Destructor called" << std::endl;
+    std::cout << _ITALIC "Destructor called" _END << std::endl;
     return;
 }
 
@@ -55,7 +56,7 @@ std::ostream & operator <<( std::ostream & o, Fixed const & i ) {
 
 Fixed & Fixed::operator=( Fixed const & n ) {
 	
-	std::cout << "Copy Assignement operator called" << std::endl;
+	std::cout << _ITALIC "Copy Assignement operator called" _END << std::endl;
 	this->_n = n.getRawBits();
 	return *this;
 

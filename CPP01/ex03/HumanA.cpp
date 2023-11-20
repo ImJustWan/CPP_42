@@ -18,4 +18,3 @@ void	HumanA::attack( void ) {
 	std::cout << _YELLOW << this->_name << " is attacking with " << this->_weapon._weaponType << " !" _END << std::endl;
 	return;
 }
-

@@ -24,5 +24,9 @@ bool Point::bsp(Point const a, Point const b, Point const c, Point const point)
 	float firstArea = triangleArea(point, a, b);
 	float secondArea = triangleArea(point, b, c);
 	float thirdArea = triangleArea(point, a, c);
-	return (firstArea + secondArea + thirdArea == fullArea) ? true : false ;
+
+	float ff = firstArea / fullArea;
+	float sf = secondArea / fullArea;
+	float tf = thirdArea / fullArea;
+	return (ff > 0 && sf > 0 && tf > 0 && ff < 1 && sf < 1 && tf < 1) ? true : false ;
 }

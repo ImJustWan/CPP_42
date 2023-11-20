@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include "colors.hpp"
 
 Fixed::Fixed(void) : _n(0) {
 	return;
@@ -57,48 +58,50 @@ Fixed &Fixed::operator=(Fixed const &n) {
 /* ARITHMETIC OPERATORS */
 
 Fixed Fixed::operator+(Fixed const &rhs) const {
-	return Fixed(this->_n + rhs.toFloat() * (1 << _rawBits));
+	return Fixed(this->toFloat() + rhs.toFloat());
+	// return Fixed(this->toFloat() + rhs._n);
 }
 
 Fixed Fixed::operator-(Fixed const &rhs) const {
-	return Fixed(this->_n - rhs.toFloat() * (1 << _rawBits));
+	return Fixed(this->toFloat() - rhs.toFloat());
 }
 
 Fixed Fixed::operator*(Fixed const &rhs) const {
-	long long result = static_cast<long long>(this->_n) * rhs.getRawBits();
-	result = (result + (1LL << (_rawBits - 1))) / (1LL << _rawBits);
-	return Fixed(static_cast<float>(result) / (1 << _rawBits));
+	return Fixed(this->toFloat() * rhs.toFloat());
 }
 
 Fixed Fixed::operator/(Fixed const &rhs) const {
-	return Fixed(static_cast<float>(this->_n) / rhs.getRawBits());
+	if (rhs.getRawBits() != 0)
+		return Fixed(this->toFloat() / rhs.toFloat());
+	std::cout << _BOLD _PINK "\tI don't divide by 0, sorry." _END << std::endl;
+	return this->toFloat();
 }
 
 
 /* COMPARISON OPERATORS */
 
 bool	Fixed::operator==(Fixed const &rhs) const {
-	return this->_n != rhs.getRawBits();
+	return (this->toFloat() == rhs.toFloat());
 }
 
 bool	Fixed::operator!=(Fixed const &rhs) const {
-	return this->_n != rhs.getRawBits();
+	return (this->toFloat() != rhs.toFloat());
 }
 
 bool	Fixed::operator<(Fixed const &rhs) const {
-	return this->_n < rhs.getRawBits();
+	return (this->toFloat() < rhs.toFloat());
 }
 
 bool	Fixed::operator<=(Fixed const &rhs) const {
-	return this->_n <= rhs.getRawBits();
+	return (this->toFloat() <= rhs.toFloat());
 }
 
 bool	Fixed::operator>(Fixed const &rhs) const {
-	return this->_n > rhs.getRawBits();
+	return (this->toFloat() > rhs.toFloat());
 }
 
 bool	Fixed::operator>=(Fixed const &rhs) const {
-	return this->_n >= rhs.getRawBits();
+	return (this->toFloat() >= rhs.toFloat());
 }
 
 

@@ -14,13 +14,13 @@ public:
 
 	int	tmp;
 
-	Point   		&operator=(Point const &rhs);
 	static bool		bsp(Point const a, Point const b, Point const c, Point const point);
 	static float	triangleArea(Point const a, Point const b, Point const c);
 
 private:
-	const Fixed	_x;
-	const Fixed	_y;
+	Point	&operator=(Point const &rhs);
+	Fixed	const	_x;
+	Fixed	const	_y;
 
 };
 

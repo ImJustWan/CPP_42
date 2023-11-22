@@ -66,6 +66,6 @@ void	ScavTrap::attack(const std::string& target)
 }
 
 void    ScavTrap::guardGate() {
-		std::cout << _BOLD _ITALIC _RIVIERA << getName() << " was never intended to create violence, they're now in Gate Keeper Mode. (￣^￣)ゞ\n" _END << std::endl;
+		std::cout << _BOLD _ITALIC _CYAN << getName() << " was never intended to create violence, they're now in Gate Keeper Mode. (￣^￣)ゞ\n" _END << std::endl;
 
 }

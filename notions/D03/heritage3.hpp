@@ -10,7 +10,7 @@ class Quadruped
 	public:
 		void		run(); // accessible from wherever
 
-};plaintext
+};
 
 class Dog : public Quadruped
 {

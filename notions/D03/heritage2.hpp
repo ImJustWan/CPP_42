@@ -19,7 +19,7 @@ class Cat : public Animal
 {
 	public:
 		Cat();
-		Cat( Cat const &);
+		Cat(Cat const &);
 		Cat &operator=( Cat const &);
 		~Cat();
 

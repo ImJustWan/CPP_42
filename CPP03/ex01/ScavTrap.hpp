@@ -17,7 +17,8 @@ public:
 
 	void	attack(const std::string& target);
     void    guardGate();
- 
+	void	setStart(std::string name);
+
 };
 
 #endif

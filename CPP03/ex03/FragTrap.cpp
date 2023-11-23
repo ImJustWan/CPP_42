@@ -5,8 +5,8 @@ FragTrap::FragTrap() {
 
 	std::cout << _ITALIC "FragTrap Constructor called" _END << std::endl;
 	_hitPts = 100;
-	_nrgPts = 50;
-	_atkDmg = 20;
+	_nrgPts = 100;
+	_atkDmg = 30;
 	return;
 }
 
@@ -14,8 +14,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 
 	std::cout << _ITALIC "FragTrap String Parametric Constructor called (" << name << ")" _END << std::endl;
 	_hitPts = 100;
-	_nrgPts = 50;
-	_atkDmg = 20;
+	_nrgPts = 100;
+	_atkDmg = 30;
 	return;
 }
 
@@ -54,7 +54,7 @@ void	FragTrap::attack(const std::string& target)
 			std::cout << "FragTrap has no Hit Points left, the attack failed..." << std::endl;
 			return;
 		}
-		std::cout << target << " took an high kick ( #`⌂´)/┌┛" << std::endl;
+		std::cout << target << " took a high kick ( #`⌂´)/┌┛ ";
 		takeDamage(_atkDmg);
 		std::cout << _ITALIC _GREY "(attack cost) Energy points : " << _nrgPts;
 		_nrgPts--;

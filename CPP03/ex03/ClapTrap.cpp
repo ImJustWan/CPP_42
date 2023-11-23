@@ -9,7 +9,7 @@ ClapTrap::ClapTrap() : _hitPts(10), _nrgPts(10), _atkDmg(0) {
 
 ClapTrap::ClapTrap(std::string name) : _name(name),  _hitPts(10), _nrgPts(10), _atkDmg(0) {
 	
-	std::cout << _ITALIC "ClapTrap String Parametric Constructor called (" << name << ")" _END << std::endl;
+	std::cout << _ITALIC "ClapTrap String Parametric Constructor called (" << _name << ")" _END << std::endl;
 	return;
 }
 
@@ -58,7 +58,7 @@ void	ClapTrap::attack(const std::string& target)
 			std::cout << "ClapTrap has no Hit Points left, the attack failed..." << std::endl;
 			return;
 		}
-		std::cout << target << " was punched ヾ(￣□￣)ﾂ" << std::endl;
+		std::cout << target << " was punched ヾ(￣□￣)ﾂ";
 		takeDamage(_atkDmg);
 		std::cout << _ITALIC _GREY "(attack cost) " << getName() << " Energy points : " << _nrgPts;
 		_nrgPts--;

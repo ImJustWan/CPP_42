@@ -18,6 +18,10 @@ public:
 	void	attack(const std::string& target);
 	void 	highFivesGuys(void);
 
+protected:
+	int	_hitPts;
+	int _atkDmg;
+
 };
 
 #endif

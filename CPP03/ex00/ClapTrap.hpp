@@ -18,11 +18,11 @@ public:
 	void				takeDamage(unsigned int amount);
 	void				beRepaired(unsigned int amount);
 	
-	void				setNrgPoints(unsigned int amount);
-	void				setAtkDmg(unsigned int amount);
+	void				setNrgPoints(const unsigned int amount);
+	void				setAtkDmg(const unsigned int amount);
 	const std::string	&getName() const;
 
-CPP03/ex01/ClapTrap.cpp CPP03/ex01/ClapTrap.hppprivate:
+private:
 	std::string	_name;
 	int			_hitPts;
 	int			_nrgPts;

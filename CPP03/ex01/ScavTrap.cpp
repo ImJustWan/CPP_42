@@ -4,24 +4,21 @@
 ScavTrap::ScavTrap() {
 
 	std::cout << _ITALIC "ScavTrap Constructor called" _END << std::endl;
-	_hitPts = 100;
-	_nrgPts = 50;
-	_atkDmg = 20;
+	setStart("");
 	return;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 
 	std::cout << _ITALIC "ScavTrap String Parametric Constructor called (" << name << ")" _END << std::endl;
-	_hitPts = 100;
-	_nrgPts = 50;
-	_atkDmg = 20;
+	setStart(name);
 	return;
 }
 
 ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap(src) {
 
 	std::cout << _ITALIC "Copy Constructor called" _END << std::endl;
+	setStart(src._name);
 	*this = src;
 	return;
 }
@@ -41,6 +38,15 @@ ScavTrap & ScavTrap::operator=( ScavTrap const & n ) {
 	_nrgPts = n._nrgPts;
 	_atkDmg = n._atkDmg;
 	return *this;
+
+}
+
+void	ScavTrap::setStart(std::string name) {
+
+	_name = name;
+	_hitPts = 100;
+	_nrgPts = 50;
+	_atkDmg = 20;
 
 }
 

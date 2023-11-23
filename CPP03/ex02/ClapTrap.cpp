@@ -58,7 +58,7 @@ void	ClapTrap::attack(const std::string& target)
 			std::cout << "ClapTrap has no Hit Points left, the attack failed..." << std::endl;
 			return;
 		}
-		std::cout << target << " was punched ヾ(￣□￣)ﾂ" << std::endl;
+		std::cout << target << " was punched ヾ(￣□￣)ﾂ " ;
 		takeDamage(_atkDmg);
 		std::cout << _ITALIC _GREY "(attack cost) " << getName() << " Energy points : " << _nrgPts;
 		_nrgPts--;

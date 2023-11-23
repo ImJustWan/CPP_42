@@ -48,13 +48,13 @@ void	ScavTrap::attack(const std::string& target)
 {
 	if (_nrgPts > 0)
 	{
-		std::cout << _BOLD _SALMON "\n" << getName() << "(ScavTrap) attacks ! 〈ง ᓀ‸ᓂ〉ง " _END << std::endl;
+		std::cout << _BOLD _SALMON "\n" << getName() << "(ScavTrap) attacks ! (ง ͠ಥ_ಥ)ง " _END << std::endl;
 		if (_hitPts == 0)
 		{
 			std::cout << "ScavTrap has no Hit Points left, the attack failed..." << std::endl;
 			return;
 		}
-		std::cout << target << " took an uppercut (ง◉_◉)ง" << std::endl;
+		std::cout << target << " took an uppercut (ง◉_◉)ง ";
 		takeDamage(_atkDmg);
 		std::cout << _ITALIC _GREY "(attack cost) Energy points : " << _nrgPts;
 		_nrgPts--;

@@ -16,8 +16,10 @@ public:
 	ScavTrap & operator=( ScavTrap const & rhs );
 
 	void	attack(const std::string& target);
-    void    guardGate();
- 
+	void    guardGate();
+
+protected:
+	int	_nrgPts;
 };
 
 #endif

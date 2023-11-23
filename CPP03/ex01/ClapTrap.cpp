@@ -58,7 +58,7 @@ void	ClapTrap::attack(const std::string& target)
 			std::cout << "ClapTrap has no Hit Points left, the attack failed..." << std::endl;
 			return;
 		}
-		std::cout << target << " was punched ヾ(￣□￣)ﾂ" << std::endl;
+		std::cout << target << " was punched ヾ(￣□￣)ﾂ";
 		takeDamage(_atkDmg);
 		std::cout << _ITALIC _GREY "(attack cost) " << getName() << " Energy points : " << _nrgPts;
 		_nrgPts--;
@@ -82,7 +82,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_nrgPts > 0)
 	{
-		std::cout << _AQUAMARINE << getName() << " is drinking a Potion 🧪"  << std::endl;
+		std::cout << _CYAN _ITALIC _BOLD << getName() << " is drinking a Potion 🧪 ";
 		std::cout << _ITALIC << getName() << " Hit points : " << _hitPts;
 		_hitPts += amount;
 		std::cout << " ➔ " << _hitPts << _END <<std::endl;

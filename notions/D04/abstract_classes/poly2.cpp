@@ -4,7 +4,7 @@
 class ACharacter {
 	public:
 		virtual void    attack(std::string const & target) = 0; //makes it a pure method
-						// can't define/implement the meethod 
+						// can't define/implement the method 
 						// -> can't the class -> makes it an abstract class 
 		void            sayHello(std::string const & target);
 };

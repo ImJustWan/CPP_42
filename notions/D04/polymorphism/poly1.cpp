@@ -8,7 +8,7 @@ public:
 
 class Warrior : public Character {
 public:
-	virtual void    sayHello(std::string const & target);
+	void    sayHello(std::string const & target);
 };
 
 class Cat {

@@ -14,7 +14,7 @@ public:
 	Animal & operator=( Animal const & rhs );
 
 	virtual std::string		getType() const;
-	virtual std::string		getIdea(int index) const = 0;
+	virtual std::string		getIdea(int index) const;
 
 protected:
 	virtual void			makeSound() const;

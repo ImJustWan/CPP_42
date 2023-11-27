@@ -42,3 +42,9 @@ void	Animal::makeSound() const {
 std::string	Animal::getType(void) const {
 	return this->_type;
 }
+
+std::string	Animal::getIdea(int index) const {
+	(void)index;
+	return ("");
+}
+

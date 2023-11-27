@@ -1,5 +1,5 @@
 # Das Progamm
-NAME 				:=	abstraction
+NAME 				:=	interfaces
 
 # Compiler
 CXX					:=	c++
@@ -8,21 +8,25 @@ CXXFLAGS			:=	-Wall -Werror -Wextra -std=c++98
 DEPS				:=	${OBJS:.o=.d}
 
 # Includes
-INC					:=	Animal.hpp \
-						Brain.hpp \
-						Dog.hpp \
-						Cat.hpp \
-						wrongAnimal.hpp \
-						wrongCat.hpp
+INC					:=	AMateria.hpp \
+						ICharacter.hpp \
+						IMateriaSource.hpp \
+						Character.hpp \
+						Cure.hpp \
+						Ice.hpp \
+						MateriaSource.hpp \
+
 
 # Sources	
 SRCS				:=	main.cpp \
-						Animal.cpp \
-						Brain.cpp \
-						Dog.cpp \
-						Cat.cpp \
-						wrongAnimal.cpp \
-						wrongCat.cpp 
+						AMateria.cpp \
+						ICharacter.cpp \
+						IMateriaSource.cpp \
+						Character.cpp \
+						Cure.cpp \
+						Ice.cpp \
+						MateriaSource.cpp
+
 # Objects
 OBJS_PATH			:=	./objs
 OBJS_NAMES			:=	$(SRCS:.cpp=.o)
@@ -32,7 +36,7 @@ all	:	$(NAME)
 
 $(NAME)	: $(OBJS) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@echo "👾 ex02 - WOOP WOOP 👾"
+	@echo "👾 ex03 - WOOP WOOP 👾"
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)

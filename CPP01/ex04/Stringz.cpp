@@ -25,7 +25,6 @@ int    replaceStrings(std::string infileName, std::string s1, std::string s2)
 		return (std::cout << "Your infile is empty :(" << std::endl, 1);
 	if (!ifs.is_open() || !ofs.is_open())
 		return (std::cout << "Can't open filezzz" << std::endl, 1);
-	
 
     std::ostringstream buffer;
 	buffer << ifs.rdbuf();

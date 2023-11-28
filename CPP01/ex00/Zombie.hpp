@@ -12,9 +12,9 @@ class Zombie
 		~Zombie();
 		Zombie( std::string name );
 
-		void	announce( void ) const;
-		static Zombie* newZombie( std::string name );
-		static void randomChump( std::string name );
+		void			announce( void ) const;
+		static Zombie*	newZombie( std::string name );
+		static void		randomChump( std::string name );
 
 	private:
 		std::string _name;

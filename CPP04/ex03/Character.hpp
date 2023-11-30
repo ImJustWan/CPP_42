@@ -11,7 +11,6 @@
 class AMateria;
 class MateriaSource;
 
-
 class Character : public ICharacter
 {
 	public:

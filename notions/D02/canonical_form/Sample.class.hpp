@@ -1,5 +1,4 @@
-#ifndef SAMPLE_CLASS_H
-# define SAMPLE_CLASS_H
+#pragma once
 
 #include <iostream>
 
@@ -22,5 +21,3 @@ private:
 };
 
 std::ostream & operator<<( std::ostream & o, Sample const & rhs );
-
-#endif

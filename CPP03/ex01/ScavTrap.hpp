@@ -1,5 +1,4 @@
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#pragma once
 
 #include <iostream>
 #include "ClapTrap.hpp"
@@ -20,5 +19,3 @@ public:
 	void	setStart(std::string name);
 
 };
-
-#endif

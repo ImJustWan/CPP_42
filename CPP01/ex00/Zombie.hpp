@@ -1,5 +1,4 @@
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -20,5 +19,3 @@ class Zombie
 		std::string _name;
 
 };
-
-#endif

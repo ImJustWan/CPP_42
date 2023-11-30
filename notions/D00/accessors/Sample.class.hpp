@@ -1,5 +1,4 @@
-#ifndef SAMPLE_CLASS
-# define SAMPLE_CLASS
+#pragma once
 
 class Sample {
 
@@ -16,5 +15,3 @@ private:
 	int		_foo;
 
 };
-
-#endif

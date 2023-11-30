@@ -1,5 +1,4 @@
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#pragma once
 
 #include <iostream>
 #include <math.h>
@@ -43,6 +42,3 @@ private:
 	static const int _rawBits = 8;
 };
 std::ostream &operator<<(std::ostream &o, Fixed const &i);
-
-
-#endif

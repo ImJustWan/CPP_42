@@ -1,5 +1,4 @@
-#ifndef SAMPLE1_CLASS_H
-# define SAMPLE1_CLASS_H
+#pragma once
 
 struct Sample1 {
 
@@ -10,5 +9,3 @@ struct Sample1 {
 
 	void	bar(void) const;
 };
-
-#endif

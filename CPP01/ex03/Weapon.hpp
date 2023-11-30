@@ -1,5 +1,4 @@
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -16,5 +15,3 @@ class Weapon {
 	private:
 
 };
-
-#endif

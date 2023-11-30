@@ -1,5 +1,4 @@
-#ifndef INTEGER_CLASS_HPP
-# define INTEGER_CLASS_HPP
+#pragma once
 
 #include <iostream>
 
@@ -21,4 +20,3 @@ private:
 
 std::ostream & operator <<( std::ostream & o, Integer const & rhs );
 
-#endif

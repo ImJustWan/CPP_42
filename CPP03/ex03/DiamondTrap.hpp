@@ -1,5 +1,4 @@
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#pragma once
 
 #include <iostream>
 #include "ClapTrap.hpp"
@@ -25,5 +24,3 @@ private:
 	std::string	_name;
 
 };
-
-#endif

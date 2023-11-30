@@ -26,7 +26,6 @@ class Cat : public Animal
 		void	scornSomeone(std::string const & target);
 };
 
-
 class Pony : public Animal
 {
 	public:

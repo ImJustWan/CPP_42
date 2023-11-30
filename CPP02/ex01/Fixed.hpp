@@ -1,5 +1,4 @@
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#pragma once
 
 #include <iostream>
 
@@ -27,5 +26,3 @@ private:
 };
 
 std::ostream & operator<<( std::ostream & o, Fixed const & rhs );
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef SAMPLE_CLASS
-# define SAMPLE_CLASS
+#pragma once
 
 class Sample {
 
@@ -11,5 +10,3 @@ public:
 	~Sample( void );
 
 };
-
-#endif

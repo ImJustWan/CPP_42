@@ -7,7 +7,6 @@
 //                                                                            //
 // ************************************************************************** //
 
-
 #pragma once
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
@@ -17,7 +16,6 @@
 // ************************************************************************** //
 
 class Account {
-
 
 public:
 
@@ -37,7 +35,6 @@ public:
 	int		checkAmount( void ) const;
 	void	displayStatus( void ) const;
 
-
 private:
 
 	static int	_nbAccounts;
@@ -56,14 +53,11 @@ private:
 
 };
 
-
-
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
 // -*- indent-tabs-mode:t;                                                   -*-
 // -*- mode: c++-mode;                                                       -*-
 // -*- fill-column: 75; comment-column: 75;                                  -*-
 // ************************************************************************** //
-
 
 #endif /* __ACCOUNT_H__ */

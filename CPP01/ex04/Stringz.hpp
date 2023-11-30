@@ -1,5 +1,4 @@
-#ifndef STRINGZ_HPP
-# define STRINGZ_HPP
+#pragma once
 
 #include <iostream>
 #include <fstream>
@@ -8,4 +7,3 @@
 
 int    replaceStrings(std::string infileName, std::string s1, std::string s2);
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef POINT_HPP
-# define POINT_HPP
+#pragma once
 
 #include <iostream>
 #include <math.h>
@@ -23,5 +22,3 @@ private:
 	Fixed	const	_y;
 
 };
-
-#endif

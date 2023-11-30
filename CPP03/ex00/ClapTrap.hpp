@@ -1,5 +1,4 @@
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#pragma once
 
 #include <iostream>
 
@@ -28,7 +27,4 @@ private:
 	int			_nrgPts;
 	int			_atkDmg;
 
-
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef HARL_HPP
-# define HARL_HPP
+#pragma once
 
 #include <iostream>
 #include <fstream>
@@ -48,5 +47,3 @@ private:
 	void warning( void );
 	void error( void );
 };
-
-#endif

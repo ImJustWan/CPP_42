@@ -1,5 +1,4 @@
-#ifndef SAMPLE2_CLASS_H
-# define SAMPLE2_CLASS_H
+#pragma once
 
 class Sample2 {
 
@@ -12,5 +11,3 @@ public :
 	Sample2(char p1, int p2, float p3);
 	~Sample2(void);
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#pragma once
 
 #include "Contact.hpp"
 
@@ -16,5 +15,3 @@ public :
 	int	    	DisplayRepertory( PhoneBook &repertory ) const;
 	void    	DisplayContact( Contact &ZeContact ) const;
 };
-
-#endif

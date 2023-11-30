@@ -1,5 +1,4 @@
-#ifndef COLORS_HPP
-# define COLORS_HPP
+#pragma once
 
 # define _END "\1\033[0m\2"
 # define _BOLD "\1\033[1m\2"
@@ -31,4 +30,3 @@
 # define _RIVIERA "\1\033[38;5;32m\2"
 # define _SALMON "\1\033[38;5;209m\2"
 
-#endif

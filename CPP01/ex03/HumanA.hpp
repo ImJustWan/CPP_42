@@ -1,5 +1,4 @@
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -16,5 +15,3 @@ class HumanA {
 		std::string 	_name;
 		const Weapon&	_weapon;
 };
-
-#endif

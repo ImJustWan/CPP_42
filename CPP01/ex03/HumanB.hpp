@@ -1,5 +1,4 @@
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -18,5 +17,3 @@ class HumanB {
 		const Weapon*	_weapon;
 
 };
-
-#endif

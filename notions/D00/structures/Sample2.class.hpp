@@ -1,5 +1,4 @@
-#ifndef SAMPLE2_CLASS_H
-# define SAMPLE2_CLASS_H
+#pragma once
 
 class Sample2 {
 
@@ -11,5 +10,3 @@ class Sample2 {
 	void	bar(void) const;
 
 };
-
-#endif

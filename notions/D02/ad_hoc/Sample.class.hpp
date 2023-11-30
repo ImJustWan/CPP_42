@@ -1,5 +1,4 @@
-#ifndef SAMPLE_CLASS_HPP
-# define SAMPLE_CLASS_HPP
+#pragma once
 
 class Sample {
 
@@ -13,5 +12,3 @@ public:
     void    bar( Sample const & i) const;
 
 };
-
-#endif

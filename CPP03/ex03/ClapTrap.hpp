@@ -1,5 +1,4 @@
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#pragma once
 
 #include <iostream>
 
@@ -30,5 +29,3 @@ public:
 private:
 
 };
-
-#endif

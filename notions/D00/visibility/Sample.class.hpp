@@ -1,5 +1,4 @@
-#ifndef SAMPLE_CLASS
-# define SAMPLE_CLASS
+#pragma once
 
 class Sample {
 
@@ -19,5 +18,3 @@ private:
 	void    _privateBar(void) const;
 
 };
-
-#endif

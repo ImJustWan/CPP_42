@@ -1,5 +1,4 @@
-#ifndef CONTACT_H
-# define CONTACT_H
+#pragma once
 
 #include <string>
 #include <string.h>
@@ -7,7 +6,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <iomanip>
-
 
 class Contact {
 
@@ -33,5 +31,3 @@ private:
 	std::string	_PhoneNumber;
 	std::string	_DarkestSecret;
 };
-
-#endif

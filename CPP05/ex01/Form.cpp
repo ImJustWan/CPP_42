@@ -1,84 +1,122 @@
 #include "Form.hpp"
 
-Form::Form() : _name("Grint"), _grade(150) {
+Form::Form() : _name("Betises"), _signed(false), _execGrade(75), _signGrade(75){
 
-	std::cout << _ITALIC "Default Form Constructor called :";
-	std::cout << " default name is Grint, and they start with the lowest grade of 150" _END << std::endl;
+	std::cout << _DARKGREY _ITALIC "Default Form Constructor called\n";
+	std::cout << "Default name is Betises, and they start with the lowest grade of 150" _END << std::endl;
 	return;
 }
 
-Form::Form(std::string name, int grade) : _name(name), _grade(grade) {
+Form::Form(std::string name, int exec, int sign) : _name(name), _signed(false) {
 	
-	std::cout << _ITALIC "Form String Parametric Constructor called (" << name << ")" _END << std::endl;
+	if (exec < 1 || sign < 1)
+		throw GradeTooHighException();
+	else if (exec > 150 || sign > 150)
+		throw GradeTooLowException();
+	std::cout << _DARKGREY _ITALIC "Form Parametric Constructor called." << std::endl;
+	this->_execGrade = exec;
+	this->_signGrade = sign;
+	std::cout << this->getName() << " has been created : ";
+	std::cout << "Exec Grade is " << this->getExecGrade();
+	std::cout << ", Sign Grade is " << this->getSignGrade() << _END << std::endl;
 	return;
 }
 
-Form::Form( Form const & src ) : _name(src._name), _grade(src._grade) {
+Form::Form( Form const & src ) : _name("Other" + src._name), _signed(false), _execGrade(src._execGrade), _signGrade(src._signGrade) {
 
-	std::cout << _ITALIC "Copy Constructor called" _END << std::endl;
+	std::cout << _DARKGREY _ITALIC "Copy Constructor called" _END << std::endl;
 	*this = src;
 	return;
 }
 
 Form::~Form(void) {
 
-    std::cout << _ITALIC "Form Destructor called (" << getName() << ")" _END << std::endl;
+    std::cout << _DARKGREY _ITALIC "Form Destructor called (" << getName() << ")" _END << std::endl;
     return;
 }
 
 Form & Form::operator=( Form const & n ) {
 	
-	std::cout << _ITALIC "Form Copy Assignement operator called" _END << std::endl;
-	this->_grade = n._grade;
+	std::cout << _DARKGREY _ITALIC "Form Copy Assignement operator called" _END << std::endl;
+	this->_signed = n._signed;
+	this->_execGrade = n._execGrade;
+	this->_signGrade = n._signGrade;
 	return *this;
 
 }
 
 std::ostream &operator<<(std::ostream &o, Form const &i) {
-	o << i.getName() << ", Form grade " << i.getGrade();
+	o << "\n🠮 Form Name : "<< i.getName() <<  ", Exec grade : " << i.getExecGrade() << ", Sign grade : " << i.getSignGrade() << std::endl;
 	return o;
+}
+
+void	Form::setSigned(bool tf) {
+	this->_signed = tf;
 }
 
 const std::string	&Form::getName(void) const {
 	return this->_name;
 }
 
-const int	&Form::getGrade(void) const {
-	return this->_grade;
+const bool	&Form::getSigned(void) const {
+	return this->_signed;
 }
 
-void	Form::incrementGrade(void) {
+const int	&Form::getExecGrade(void) const {
+	return this->_execGrade;
+}
+
+const int	&Form::getSignGrade(void) const {
+	return this->_signGrade;
+}
+
+/// @brief Increment the grade of the Exec Grade for the Form
+/// @throw GradeTooHighException: can't be incremented
+void	Form::incrementExecGrade(void) {
 	
-	try
-	{
-		if (this->_grade == 1)
-			throw GradeTooHighException();
-		else
-		{
-			this->_grade--;
-			std::cout << _EMMERALD << this->getName() << " has been promoted to rank ";
-			std::cout << this->getGrade() << _END << std::endl;
-		}
-	}
-	catch(const GradeTooHighException& e) {
-		std::cout << _FOREST_GREEN "✨ "<< this->getName() << " has already achieved the highest rank (シ_ _)シ" _END << std::endl;
-	}
+	if (this->_execGrade == 1)
+		throw GradeTooHighException();
+	this->_execGrade--;
+	std::cout << _EMMERALD "Exec Grade for the Form" << this->getName() << " has been increased to rank ";
+	std::cout << this->getExecGrade() << _END << std::endl;
 }
 
-void	Form::decrementGrade(void) {
+/// @brief Increment the grade of the Exec Grade for the Form
+/// @throw GradeTooHighException: can't be incremented
+void	Form::incrementSignGrade(void) {
+	
+	if (this->_signGrade == 1)
+		throw GradeTooHighException();
+	this->_signGrade--;
+	std::cout << _EMMERALD "Sign Grade for the Form" << this->getName() << " has been increased to rank ";
+	std::cout << this->getSignGrade() << _END << std::endl;
+}
 
-	try
-	{
-		if (this->_grade == 150)
-			throw GradeTooLowException();
-		else
-		{
-			this->_grade++;
-			std::cout << _SALMON << this->getName() << " has been demoted to rank ";
-			std::cout << this->getGrade() << _END << std::endl;
-		}
-	}
-	catch(const GradeTooLowException& e) {
-		std::cout << _RED "❌ " << this->getName() << " is already at the bottom of the ladder ( ´･･)ﾉ(._.`)" _END << std::endl;
-	}
+/// @brief Decrement the grade of the Exec Grade for the Form
+/// @throw GradeTooHighException: can't be decremented
+void	Form::decrementExecGrade(void) {
+	
+	if (this->_execGrade == 150)
+		throw GradeTooLowException();
+	this->_execGrade++;
+	std::cout << _EMMERALD "Exec Grade for the Form" << this->getName() << " has been decreased to rank ";
+	std::cout << this->getExecGrade() << _END << std::endl;
+}
+
+/// @brief Decrement the grade of the Exec Grade for the Form
+/// @throw GradeTooHighException: can't be decremented
+void	Form::decrementSignGrade(void) {
+	
+	if (this->_signGrade == 150)
+		throw GradeTooLowException();
+	this->_signGrade++;
+	std::cout << _EMMERALD "Sign Grade for the Form" << this->getName() << " has been decreased to rank ";
+	std::cout << this->getSignGrade() << _END << std::endl;
+}
+
+void	Form::beSigned(Bureaucrat const &person) {
+	if (person.getGrade() > this->getSignGrade())
+		throw GradeTooLowException();
+	this->_signed = true;
+	std::cout << _AQUAMARINE _BOLD "\n" << this->getName() << " has officially been signed 🍾\n" _END << std::endl;
 }

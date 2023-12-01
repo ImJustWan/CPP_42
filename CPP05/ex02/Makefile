@@ -10,19 +10,19 @@ DEPS				:=	${OBJS:.o=.d}
 # Includes
 INC					:=	Bureaucrat.hpp \
 						AForm.hpp \
-						ShrubberyCreationForm.cpp \
-						RobotomyRequestForm.hpp \
-						PresidentialPardonForm.hpp \
-						Intern.hpp
+						ShrubberyCreationForm.hpp \
+						RobotomyRequestForm.hpp
+# PresidentialPardonForm.hpp
+# Intern.hpp
 
 # Sources	
 SRCS				:=	main.cpp \
 						Bureaucrat.cpp \
-						AForm.cpp 
+						AForm.cpp \
 						ShrubberyCreationForm.cpp \
-						RobotomyRequestForm.cpp \
-						PresidentialPardonForm.cpp \
-						Intern.cpp
+						RobotomyRequestForm.cpp 
+# PresidentialPardonForm.cpp
+# Intern.cpp
 		
 # Objects
 OBJS_PATH			:=	./objs

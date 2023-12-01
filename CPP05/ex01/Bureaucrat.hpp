@@ -25,8 +25,7 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			virtual const char * what() const throw()
-			{
+			virtual const char * what() const throw() {
 				return("This is too high ! Grade can only be between 1 and 150.");
 			}
 	};
@@ -34,8 +33,7 @@ public:
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			virtual const char * what() const throw()
-			{
+			virtual const char * what() const throw() {
 				return("This is too low ! Grade can only be between 1 and 150.");
 			}
 	};

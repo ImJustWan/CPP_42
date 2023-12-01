@@ -59,7 +59,6 @@ Fixed &Fixed::operator=(Fixed const &n) {
 
 Fixed Fixed::operator+(Fixed const &rhs) const {
 	return Fixed(this->toFloat() + rhs.toFloat());
-	// return Fixed(this->toFloat() + rhs._n);
 }
 
 Fixed Fixed::operator-(Fixed const &rhs) const {

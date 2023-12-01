@@ -1,5 +1,7 @@
 #include "Bureaucrat.hpp"
 
+/*INVERT HIGH AND LOW */
+
 Bureaucrat::Bureaucrat() : _name("Grint"), _grade(150) {
 
 	std::cout << _ITALIC "Default Bureaucrat Constructor called :";
@@ -7,9 +9,29 @@ Bureaucrat::Bureaucrat() : _name("Grint"), _grade(150) {
 	return;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	
-	std::cout << _ITALIC "Bureaucrat String Parametric Constructor called (" << name << ")" _END << std::endl;
+	std::cout << _ITALIC "Bureaucrat Parametric Constructor called (" << name << ")" _END << std::endl;
+	try
+	{
+		if (grade < 1)
+			throw GradeTooHighException();
+		else if (grade > 150)
+			throw GradeTooLowException();
+		else
+		{
+			this->_grade = grade;
+			std::cout << _ITALIC << this->getName() << " has entered the game at rank ";
+			std::cout << this->getGrade() << _END << std::endl;
+		}
+	}
+	catch(const GradeTooHighException& e) {
+		std::cout << "Be reasonable, nobody starts with a grade that high..." << std::endl;
+		std::cout << "Let's make it an even 75 " << std::endl;
+	}
+	catch(const GradeTooLowException& e) {
+		std::cout << "With a grade that low, they might as well not even start working..." << std::endl;
+	}
 	return;
 }
 

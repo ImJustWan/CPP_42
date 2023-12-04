@@ -25,7 +25,7 @@ public:
 	void				incrementGrade();
 	void				decrementGrade();
 	void				signForm(AForm &randomForm);
-
+	void				executeForm(AForm const & form);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -39,7 +39,7 @@ public:
 	{
 		public:
 			virtual const char * what() const throw() {
-				return(_BOLD _LIGHTGREY "This is too low ! Grade can only be between 1 and 150." _END);
+				return(_BOLD _LIGHTGREY "This is too low ! Grade can only be between 1 and 150.\n" _END);
 			}
 	};
 

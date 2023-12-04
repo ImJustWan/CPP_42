@@ -23,6 +23,10 @@ public:
 
 	RobotomyRequestForm	&operator=( RobotomyRequestForm const & rhs );
 	
+	virtual const std::string	&getName() const;
+	virtual const int			&getExecGrade() const;
+	virtual const int			&getSignGrade() const;
+
 	void				robotomization(std::string target);
 	
 	class RobotFailed : public std::exception

@@ -11,8 +11,8 @@ DEPS				:=	${OBJS:.o=.d}
 INC					:=	Bureaucrat.hpp \
 						AForm.hpp \
 						ShrubberyCreationForm.hpp \
-						RobotomyRequestForm.hpp
-# PresidentialPardonForm.hpp
+						RobotomyRequestForm.hpp \
+						PresidentialPardonForm.hpp
 # Intern.hpp
 
 # Sources	
@@ -20,8 +20,8 @@ SRCS				:=	main.cpp \
 						Bureaucrat.cpp \
 						AForm.cpp \
 						ShrubberyCreationForm.cpp \
-						RobotomyRequestForm.cpp 
-# PresidentialPardonForm.cpp
+						RobotomyRequestForm.cpp \
+						PresidentialPardonForm.cpp
 # Intern.cpp
 		
 # Objects

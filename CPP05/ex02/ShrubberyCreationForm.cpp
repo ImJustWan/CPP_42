@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : _name("Betises"), _signed(false), _execGrade(137), _signGrade(145) {
+ShrubberyCreationForm::ShrubberyCreationForm() : _name("Forest"), _signed(false), _execGrade(137), _signGrade(145) {
 
 	std::cout << _DARKGREY _ITALIC "Default ShrubberyCreationForm Constructor called." << std::endl;
 	std::cout << "Default name is : " << this->getName();
@@ -43,6 +43,18 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 std::ostream &operator<<(std::ostream &o, ShrubberyCreationForm const &i) {
 	o << "\n🠮 ShrubberyCreationForm Name : "<< i.getName() <<  ", Exec grade : " << i.getExecGrade() << ", Sign grade : " << i.getSignGrade() << std::endl;
 	return o;
+}
+
+const std::string	&ShrubberyCreationForm::getName(void) const {
+	return this->_name;
+}
+
+const int	&ShrubberyCreationForm::getExecGrade(void) const {
+	return this->_execGrade;
+}
+
+const int	&ShrubberyCreationForm::getSignGrade(void) const {
+	return this->_signGrade;
 }
 
 void	ShrubberyCreationForm::createShrubbery(std::string target) {

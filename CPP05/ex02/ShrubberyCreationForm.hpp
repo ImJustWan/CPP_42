@@ -7,7 +7,7 @@
 class ShrubberyCreationForm : public AForm {
 
 private:
-	std::string const	_name;
+	std::string			_name;
 	bool				_signed;
 	int					_execGrade;
 	int					_signGrade;
@@ -22,6 +22,10 @@ public:
 
 	ShrubberyCreationForm	&operator=( ShrubberyCreationForm const & rhs );
 	
+	virtual const std::string	&getName() const;
+	virtual const int			&getExecGrade() const;
+	virtual const int			&getSignGrade() const;
+
 	void				createShrubbery(std::string target);
 	
 	class OutfileOpening : public std::exception

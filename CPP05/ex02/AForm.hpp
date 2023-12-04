@@ -49,7 +49,7 @@ public:
 			}
 	};
 
-private:
+protected:
 	std::string const	_name;
 	bool				_signed;
 	int					_execGrade;

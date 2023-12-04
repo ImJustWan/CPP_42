@@ -18,7 +18,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	std::cout << _DARKGREY _ITALIC << this->getName() << " has entered the game at rank ";
 	std::cout << this->getGrade() << _END << std::endl;
 	return;
-
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src._name), _grade(src._grade) {
@@ -30,7 +29,8 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src._name), _grade(src.
 
 Bureaucrat::~Bureaucrat(void) {
 
-    std::cout << _DARKGREY _ITALIC "Bureaucrat Destructor called (" << getName() << ")" _END << std::endl;
+    std::cout << _DARKGREY _ITALIC "Bureaucrat Destructor called (";
+	std::cout << getName() << ")" _END << std::endl;
     return;
 }
 
@@ -81,5 +81,18 @@ void	Bureaucrat::signForm(AForm &randomForm) {
 	if (this->getGrade() > randomForm.getSignGrade())
 		throw GradeTooLowException();
 	randomForm.setSigned(true);
-	std::cout << _AQUAMARINE _BOLD "\n" << this->getName() << " officially signed " << randomForm.getName() << " 🍾\n" _END << std::endl;
+	std::cout << _AQUAMARINE _BOLD "\n" << this->getName() << " officially signed ";
+	std::cout << randomForm.getName() << " 🍾\n" _END << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const & form) {
+	if (this->getGrade() > form.getExecGrade())
+	{
+		std::cout << _MAROON "Bureaucrat's grade (" << this->getGrade();
+		std::cout << ") is too low to execute the form " << form.getName() << std::endl;
+		std::cout << "Form's exec grade is " << form.getExecGrade() << ".\n" _END << std::endl;
+		throw GradeTooLowException();
+	}
+	std::cout << _AQUAMARINE _BOLD "\n" << this->getName() << " successfully executed ";
+	std::cout << form.getName() << " 🍾\n" _END << std::endl;
 }

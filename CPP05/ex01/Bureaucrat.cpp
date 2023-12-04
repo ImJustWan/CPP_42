@@ -78,6 +78,10 @@ void	Bureaucrat::decrementGrade(void) {
 }
 
 void	Bureaucrat::signForm(Form &randomForm) {
+	if (&randomForm == static_cast<Form*>(0)) {
+		std::cout << _MAROON _BOLD "\nThis form does not exist.\n" _END << std::endl;
+		return;
+	}
 	if (this->getGrade() > randomForm.getSignGrade())
 		throw GradeTooLowException();
 	randomForm.setSigned(true);

@@ -37,7 +37,7 @@ public:
 			virtual const char * what() const throw() {
 				
 				return(_RED "❌ Target could not be robotized\n" _END);
-            }
+			}
 	};
 };
 

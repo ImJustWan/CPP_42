@@ -65,7 +65,6 @@ int main()
 	}
 	catch(const Bureaucrat::GradeTooLowException &e) {
 	}
-
 	delete shrubbers;
 	delete guineaPig;
 	delete inmate;

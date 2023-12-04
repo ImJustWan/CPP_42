@@ -29,28 +29,26 @@ Intern & Intern::operator=( Intern const & rhs ) {
 
 AForm		*Intern::makeForm(std::string formName, std::string target) {
 	std::string formz[3] = {"scf", "rrf", "ppf"};
-	// void(functionPtr[3])(std::string) = {ShrubberyCreationForm(target), &Harl::info, &Harl::warning, &Harl::error};
 
-	int i;
-	for (i = 0; i < 3; i++)
+	AForm	*magic[3] = {
+			new ShrubberyCreationForm(target),
+			new RobotomyRequestForm(target),
+			new PresidentialPardonForm(target)
+	};
+
+	AForm *final = NULL;
+	for (int i = 0; i < 3; i++)
 		if (formName == formz[i])
-			break; 
-	switch ( i )
-	{
-		case 0: {
-			return (new ShrubberyCreationForm(target));
-		}
-		case 1: {
-			return (new RobotomyRequestForm(target));
-		}
-		case 2: {
-			return (new PresidentialPardonForm(target));
-		}
-		default:
-		{
-			std::cout << _MAROON _BOLD "You tried to ask for a form : \"" << formName << "\", no can do ! \n" _END << std::endl;
-			throw UnknownForm();
-		}
+			final = magic[i];
+		else
+			delete magic[i];
+
+	if (final != NULL) {
+		std::cout << _BOLD _AQUAMARINE "\nForm successfully created by our fav Intern ᕙ(  •̀ ᗜ •́  )ᕗ \n" _END << std::endl;
+		return final;
 	}
-	return 0;
+	else {
+		std::cout << _MAROON _BOLD "You tried to ask for a form : \"" << formName << "\", no can do ! \n" _END << std::endl;
+		throw UnknownForm();
+	}
 }

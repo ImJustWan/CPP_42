@@ -91,7 +91,7 @@ void	Bureaucrat::signForm(AForm &randomForm) {
 
 void	Bureaucrat::executeForm(AForm const & form) {
 	if (&form == static_cast<AForm*>(0)) {
-		std::cout << _MAROON _BOLD "\nThis form does not exist.\n" _END << std::endl;
+		std::cout << _MAROON _BOLD "This form does not exist.\n" _END << std::endl;
 		return;
 	}
 	if (this->getGrade() > form.getExecGrade())

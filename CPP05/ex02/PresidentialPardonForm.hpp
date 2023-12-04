@@ -29,7 +29,7 @@ public:
 	virtual const int			&getExecGrade() const;
 	virtual const int			&getSignGrade() const;
 
-	void					amnesty();
+	void						amnesty();
 	
 	class PresidentialDoom : public std::exception
 	{

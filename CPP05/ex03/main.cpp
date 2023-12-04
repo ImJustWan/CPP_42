@@ -11,10 +11,10 @@ int main()
 	Bureaucrat Garou("Garou", 8);
 	std::cout << Garou << std::endl;
 
-	std::cout << _BOLD _GREY "\n🔹 Creating Forms ! 🔹\n" _END << std::endl;
-	const AForm* shrubbers  = new ShrubberyCreationForm();
-	const AForm* guineaPig  = new RobotomyRequestForm();
-	const AForm* inmate  = new PresidentialPardonForm();
+	// std::cout << _BOLD _GREY "\n🔹 Creating Forms ! 🔹\n" _END << std::endl;
+	// const AForm* shrubbers  = new ShrubberyCreationForm();
+	// const AForm* guineaPig  = new RobotomyRequestForm();
+	// const AForm* inmate  = new PresidentialPardonForm();
 
 
 	// std::cout << _BOLD _GREY "\n\n🔹 Can our Bureaucrat execute those forms ? 🔹\n" _END << std::endl;
@@ -34,8 +34,9 @@ int main()
 
 	std::cout << _BOLD _GREY "\n\n🔹 Calling an intern 🔹\n" _END << std::endl;
 	try {
+		std::cout << _ITALIC _RIVIERA "🔹 Creating Form \"rrf\" 🔹" _END << std::endl;
 		newForm = newbie.makeForm("rrf", "Machine");
-		std::cout << _BOLD _AQUAMARINE "\nForm successfully created by our fav Intern ᕙ(  •̀ ᗜ •́  )ᕗ \n" _END << std::endl;
+		std::cout << _ITALIC _RIVIERA "🔹 Creating Form \"DAKODAK\" 🔹" _END << std::endl;
 		secondNew = newbie.makeForm("DAKODAK", "Machine");
 	}
 	catch(const Intern::UnknownForm &e) {
@@ -43,6 +44,7 @@ int main()
 	}
 
 	try {
+		std::cout << _BOLD _GREY "\n🔹 Garou tries to executes forms 🔹\n" _END << std::endl;
 		Garou.executeForm(*newForm);
 		Garou.executeForm(*secondNew);
 	}
@@ -51,8 +53,8 @@ int main()
 	}
 	delete secondNew;
 	delete newForm;
-	delete shrubbers;
-	delete guineaPig;
-	delete inmate;
+	// delete shrubbers;
+	// delete guineaPig;
+	// delete inmate;
 	return 0;
 }

@@ -114,6 +114,10 @@ void	AForm::decrementSignGrade(void) {
 }
 
 void	AForm::beSigned(Bureaucrat const &person) {
+	if (&person == static_cast<Bureaucrat*>(0)) {
+		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat to sign this.\n" _END << std::endl;
+		return;
+	}
 	if (person.getGrade() > this->getSignGrade())
 		throw GradeTooLowException();
 	this->_signed = true;

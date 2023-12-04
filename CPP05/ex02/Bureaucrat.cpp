@@ -88,11 +88,11 @@ void	Bureaucrat::signForm(AForm &randomForm) {
 void	Bureaucrat::executeForm(AForm const & form) {
 	if (this->getGrade() > form.getExecGrade())
 	{
-		std::cout << _MAROON "Bureaucrat's grade (" << this->getGrade();
-		std::cout << ") is too low to execute the form " << form.getName() << std::endl;
-		std::cout << "Form's exec grade is " << form.getExecGrade() << ".\n" _END << std::endl;
+		std::cout << _BOLD _RED << this->getName() << "'s grade (" << this->getGrade();
+		std::cout << ") is too low to execute the form " << form.getName();
+		std::cout << " (level " << form.getExecGrade() << " is needed)\n" _END << std::endl;
 		throw GradeTooLowException();
 	}
-	std::cout << _AQUAMARINE _BOLD "\n" << this->getName() << " successfully executed ";
+	std::cout << _AQUAMARINE _BOLD << this->getName() << " successfully executed ";
 	std::cout << form.getName() << " 🍾\n" _END << std::endl;
 }

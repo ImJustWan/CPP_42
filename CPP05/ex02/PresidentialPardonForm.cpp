@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : _name("Pardon"), _signed(false), _execGrade(5), _signGrade(25) {
+PresidentialPardonForm::PresidentialPardonForm() : _name("Pardon"), _target("Target"), _signed(false), _execGrade(5), _signGrade(25) {
 
 	std::cout << _DARKGREY _ITALIC "Default PresidentialPardonForm Constructor called." << std::endl;
 	std::cout << "Default name is : " << this->getName();
@@ -9,13 +9,13 @@ PresidentialPardonForm::PresidentialPardonForm() : _name("Pardon"), _signed(fals
 	return;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name): _name(name), _signed(false), _execGrade(5), _signGrade(25) {
-	
+PresidentialPardonForm::PresidentialPardonForm(std::string target):  _name("Pardon"), _target(target), _signed(false), _execGrade(5), _signGrade(25) {
+
 	std::cout << _DARKGREY _ITALIC "PresidentialPardonForm Parametric Constructor called." << std::endl;
 	return;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) : AForm("Other" + src._name, 5, 25) {
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) {
 
 	std::cout << _DARKGREY _ITALIC "Copy Constructor called" _END << std::endl;
 	*this = src;
@@ -47,6 +47,10 @@ const std::string	&PresidentialPardonForm::getName(void) const {
 	return this->_name;
 }
 
+const std::string	&PresidentialPardonForm::getTarget(void) const {
+	return this->_target;
+}
+
 const int	&PresidentialPardonForm::getExecGrade(void) const {
 	return this->_execGrade;
 }
@@ -56,7 +60,7 @@ const int	&PresidentialPardonForm::getSignGrade(void) const {
 }
 
 
-void	PresidentialPardonForm::amnesty(std::string target) {
+void	PresidentialPardonForm::amnesty() {
 	
-    std::cout << _AQUAMARINE << target << " has been pardonned, FREEDOM ৻(  •̀ ᗜ •́  ৻) " _END << std::endl;
+    std::cout << _AQUAMARINE << this->getTarget() << " has been pardonned, FREEDOM ৻(  •̀ ᗜ •́  ৻) " _END << std::endl;
 }

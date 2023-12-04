@@ -33,7 +33,7 @@ all	:	$(NAME)
 
 $(NAME)	: $(OBJS) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@echo "👾 ex01 - WOOP WOOP 👾"
+	@echo "👾 ex02 - WOOP WOOP 👾"
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)

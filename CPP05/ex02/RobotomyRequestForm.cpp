@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : _name("Robot"), _signed(false), _execGrade(45), _signGrade(72) {
+RobotomyRequestForm::RobotomyRequestForm() : _name("Robot"), _target("Target"), _signed(false), _execGrade(45), _signGrade(72) {
 
 	std::cout << _DARKGREY _ITALIC "Default RobotomyRequestForm Constructor called." << std::endl;
 	std::cout << "Default name is : " << this->getName();
@@ -9,13 +9,13 @@ RobotomyRequestForm::RobotomyRequestForm() : _name("Robot"), _signed(false), _ex
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name): _name(name), _signed(false), _execGrade(45), _signGrade(72) {
+RobotomyRequestForm::RobotomyRequestForm(std::string target):  _name("Robot"), _target(target), _signed(false), _execGrade(45), _signGrade(72) {
 	
 	std::cout << _DARKGREY _ITALIC "RobotomyRequestForm Parametric Constructor called." << std::endl;
 	return;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : AForm("Other" + src._name, 45, 72) {
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) {
 
 	std::cout << _DARKGREY _ITALIC "Copy Constructor called" _END << std::endl;
 	*this = src;
@@ -47,6 +47,10 @@ const std::string	&RobotomyRequestForm::getName(void) const {
 	return this->_name;
 }
 
+const std::string	&RobotomyRequestForm::getTarget(void) const {
+	return this->_target;
+}
+
 const int	&RobotomyRequestForm::getExecGrade(void) const {
 	return this->_execGrade;
 }
@@ -55,12 +59,12 @@ const int	&RobotomyRequestForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-void	RobotomyRequestForm::robotomization(std::string target) {
+void	RobotomyRequestForm::robotomization() {
 	
-    // std::cout << _YELLOW "🫨  *drilling noises* 🫨\n" _END <<std::endl;
+    std::cout << _YELLOW "🫨  *drilling noises* 🫨\n" _END <<std::endl;
 	std::srand(time(NULL)); 
 	if ((std::rand()) % 2 == 0)
-		std::cout << _AQUAMARINE << target << " has been successfully robotomized └[∵┌]└[ ∵ ]┘[┐∵]┘ " _END << std::endl;
+		std::cout << _AQUAMARINE << this->getTarget() << " has been successfully robotomized └[∵┌]└[ ∵ ]┘[┐∵]┘ " _END << std::endl;
 	else
 		throw RobotFailed();
 

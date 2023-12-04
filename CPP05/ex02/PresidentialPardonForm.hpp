@@ -9,6 +9,7 @@ class PresidentialPardonForm : public AForm {
 
 private:
 	std::string const	_name;
+	std::string const	_target;
 	bool				_signed;
 	int					_execGrade;
 	int					_signGrade;
@@ -18,16 +19,17 @@ public:
 
 	PresidentialPardonForm();
 	PresidentialPardonForm(PresidentialPardonForm const &);
-	PresidentialPardonForm(std::string name);
+	PresidentialPardonForm(std::string target);
 	~PresidentialPardonForm();
 
 	PresidentialPardonForm	&operator=( PresidentialPardonForm const & rhs );
 	
 	virtual const std::string	&getName() const;
+	virtual const std::string	&getTarget() const;
 	virtual const int			&getExecGrade() const;
 	virtual const int			&getSignGrade() const;
 
-	void					amnesty(std::string target);
+	void					amnesty();
 	
 	class PresidentialDoom : public std::exception
 	{

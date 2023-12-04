@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : _name("Forest"), _signed(false), _execGrade(137), _signGrade(145) {
+ShrubberyCreationForm::ShrubberyCreationForm() : _name("Forest"), _target("Target"), _signed(false), _execGrade(137), _signGrade(145) {
 
 	std::cout << _DARKGREY _ITALIC "Default ShrubberyCreationForm Constructor called." << std::endl;
 	std::cout << "Default name is : " << this->getName();
@@ -10,14 +10,14 @@ ShrubberyCreationForm::ShrubberyCreationForm() : _name("Forest"), _signed(false)
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name): _name(name) {
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): _name("Forest"), _target(target), _signed(false), _execGrade(137), _signGrade(145) {
 	
 	std::cout << _DARKGREY _ITALIC "ShrubberyCreationForm Parametric Constructor called." << std::endl;
 	return;
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ) : AForm("Other" + src._name, 137, 145) {
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ) {
 
 	std::cout << _DARKGREY _ITALIC "Copy Constructor called" _END << std::endl;
 	*this = src;
@@ -26,8 +26,8 @@ ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src 
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 
-    std::cout << _DARKGREY _ITALIC "ShrubberyCreationForm Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	std::cout << _DARKGREY _ITALIC "ShrubberyCreationForm Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm const & n ) {
@@ -49,6 +49,10 @@ const std::string	&ShrubberyCreationForm::getName(void) const {
 	return this->_name;
 }
 
+const std::string	&ShrubberyCreationForm::getTarget(void) const {
+	return this->_target;
+}
+
 const int	&ShrubberyCreationForm::getExecGrade(void) const {
 	return this->_execGrade;
 }
@@ -57,13 +61,13 @@ const int	&ShrubberyCreationForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-void	ShrubberyCreationForm::createShrubbery(std::string target) {
+void	ShrubberyCreationForm::forest() {
 	
-	std::string	outfileName = target + "_shubbery";
+	std::string	outfileName = this->getTarget() + "_shubbery";
 	std::ofstream ofs(outfileName.c_str());
 
 	if (!ofs.is_open())
 		throw OutfileOpening();
 	ofs << _TREE << "\n\n" << _TREE << "\n\n" << _TREE;
-	std::cout << _AQUAMARINE "Check your <TargetFileName> ! (づ •. •)づ\n" _END << std::endl;
+	std::cout << _AQUAMARINE "Check your " << this->getTarget() << "_shubbery ! (づ •. •)づ\n" _END << std::endl;
 }

@@ -59,8 +59,16 @@ const int	&PresidentialPardonForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-
-void	PresidentialPardonForm::amnesty() {
-	
-    std::cout << _AQUAMARINE << this->getTarget() << " has been pardonned, FREEDOM ৻(  •̀ ᗜ •́  ৻) " _END << std::endl;
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) {
+	if (&executor == static_cast<Bureaucrat*>(0)) {
+		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
+		return;
+	}
+	if (executor.getGrade() > this->getExecGrade()) {
+		std::cout << _MAROON _BOLD "\nExecutor's grade is too low.\n" _END << std::endl;
+		return;
+	}
+	std::cout << _AQUAMARINE << this->getTarget() << " has been pardonned by " << executor.getName();
+	std::cout << ", FREEDOM ৻(  •̀ ᗜ •́  ৻) " _END << std::endl;
 }
+

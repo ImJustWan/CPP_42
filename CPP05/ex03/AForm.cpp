@@ -123,3 +123,11 @@ void	AForm::beSigned(Bureaucrat const &person) {
 	this->_signed = true;
 	std::cout << _AQUAMARINE _BOLD "\n" << this->getName() << " has officially been signed 🍾\n" _END << std::endl;
 }
+
+void	AForm::execute(Bureaucrat const & executor) {
+	if (&executor == static_cast<Bureaucrat*>(0)) {
+		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
+		return;
+	}
+	std::cout << executor.getName() << "is executing." << std::endl;
+}

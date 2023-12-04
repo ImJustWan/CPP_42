@@ -29,8 +29,8 @@ public:
 	virtual const int			&getExecGrade() const;
 	virtual const int			&getSignGrade() const;
 
-	void						robotomization();
-	
+	void						execute(Bureaucrat const & executor);
+
 	class RobotFailed : public std::exception
 	{
 		public:

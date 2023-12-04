@@ -59,13 +59,19 @@ const int	&RobotomyRequestForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-void	RobotomyRequestForm::robotomization() {
-	
-    std::cout << _YELLOW "🫨  *drilling noises* 🫨\n" _END <<std::endl;
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) {
+	if (&executor == static_cast<Bureaucrat*>(0)) {
+		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
+		return;
+	}
+	if (executor.getGrade() > this->getExecGrade()) {
+		std::cout << _MAROON _BOLD "\nExecutor's grade is too low.\n" _END << std::endl;
+		return;
+	}
+	std::cout << _YELLOW "🫨  *drilling noises* 🫨\n" _END <<std::endl;
 	std::srand(time(NULL)); 
 	if ((std::rand()) % 2 == 0)
 		std::cout << _AQUAMARINE << this->getTarget() << " has been successfully robotomized └[∵┌]└[ ∵ ]┘[┐∵]┘ " _END << std::endl;
 	else
 		throw RobotFailed();
-
 }

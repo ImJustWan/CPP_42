@@ -26,12 +26,14 @@ public:
 	virtual const bool			&getSigned() const;
 	virtual const int			&getExecGrade() const;
 	virtual const int			&getSignGrade() const;
-	virtual void				setSigned(bool tf);
-	virtual void				incrementExecGrade();
-	virtual void				decrementExecGrade();
-	virtual void				incrementSignGrade();
-	virtual void				decrementSignGrade();
-	virtual void				beSigned(Bureaucrat const &person);
+	void						setSigned(bool tf);
+	void						incrementExecGrade();
+	void						decrementExecGrade();
+	void						incrementSignGrade();
+	void						decrementSignGrade();
+	void						beSigned(Bureaucrat const &person);
+	
+	virtual void				execute(Bureaucrat const & executor);
 
 	class GradeTooHighException : public std::exception
 	{

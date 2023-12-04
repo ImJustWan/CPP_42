@@ -7,7 +7,7 @@
 int main()
 {
 	std::cout << _BOLD _GREY "\n🔹 Creating Bureaucrats ! 🔹\n" _END << std::endl;
-	Bureaucrat JJG("Jean-Jacques Goldman", 18);
+	Bureaucrat JJG("Jean-Jacques Goldman", 148);
 	std::cout << JJG << std::endl;
 	Bureaucrat Garou("Garou", 1);
 	std::cout << Garou << std::endl;
@@ -16,7 +16,7 @@ int main()
 	const AForm* shrubbers  = new ShrubberyCreationForm("Home");
 	try {
 			std::cout << _BOLD _GREY "\n🔹 Creating a small forest 🌳🌳🌳 🔹\n" _END << std::endl;
-			((ShrubberyCreationForm *)shrubbers)->forest();
+			((ShrubberyCreationForm *)shrubbers)->execute(JJG);
 	}
 	catch(const ShrubberyCreationForm::OutfileOpening &e) {
 		std::cout << e.what();
@@ -27,7 +27,7 @@ int main()
 	const AForm* guineaPig  = new RobotomyRequestForm("Metamorph");
 	try {
 			std::cout << _BOLD _GREY "\n🔹 Trying to create a Robot ! 🤖🔹\n" _END << std::endl;
-			((RobotomyRequestForm *)guineaPig)->robotomization();
+			((RobotomyRequestForm *)guineaPig)->execute(Garou);
 	}
 	catch(const RobotomyRequestForm::RobotFailed &e) {
 		std::cout << e.what();
@@ -38,7 +38,7 @@ int main()
 	const AForm* inmate  = new PresidentialPardonForm("Ruby-Rose");
 	try {
 			std::cout << _BOLD _GREY "\n🔹 Asking for redemption 🕊️ 🔹\n" _END << std::endl;
-			((PresidentialPardonForm *)inmate)->amnesty();
+			((PresidentialPardonForm *)inmate)->execute(Garou);
 	}
 	catch(const PresidentialPardonForm::PresidentialDoom &e) {
 		std::cout << e.what();

@@ -28,7 +28,7 @@ public:
 	virtual const int			&getExecGrade() const;
 	virtual const int			&getSignGrade() const;
 
-	void						forest();
+	void						execute(Bureaucrat const & executor);
 	
 	class OutfileOpening : public std::exception
 	{

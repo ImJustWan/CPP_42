@@ -24,12 +24,12 @@ public:
 
 	PresidentialPardonForm	&operator=( PresidentialPardonForm const & rhs );
 	
-	virtual const std::string	&getName() const;
-	virtual const std::string	&getTarget() const;
-	virtual const int			&getExecGrade() const;
-	virtual const int			&getSignGrade() const;
+	const std::string	&getName() const;
+	const std::string	&getTarget() const;
+	const int			&getExecGrade() const;
+	const int			&getSignGrade() const;
 
-	void						amnesty();
+	void				execute(Bureaucrat const & executor);
 	
 	class PresidentialDoom : public std::exception
 	{

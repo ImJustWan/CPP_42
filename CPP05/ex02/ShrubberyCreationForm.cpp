@@ -61,8 +61,15 @@ const int	&ShrubberyCreationForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-void	ShrubberyCreationForm::forest() {
-	
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) {
+	if (&executor == static_cast<Bureaucrat*>(0)) {
+		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
+		return;
+	}
+	if (executor.getGrade() > this->getExecGrade()) {
+		std::cout << _MAROON _BOLD "\nExecutor's grade is too low.\n" _END << std::endl;
+		return;
+	}
 	std::string	outfileName = this->getTarget() + "_shubbery";
 	std::ofstream ofs(outfileName.c_str());
 

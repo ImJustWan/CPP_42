@@ -2,7 +2,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : _name("Forest"), _target("Target"), _signed(false), _execGrade(137), _signGrade(145) {
 
-	std::cout << _DARKGREY _ITALIC "Default ShrubberyCreationForm Constructor called." << std::endl;
+	// std::cout << _DARKGREY _ITALIC "Default ShrubberyCreationForm Constructor called." << std::endl;
 	std::cout << "Default name is : " << this->getName();
 	std::cout << ", Exec Grade is " << this->getExecGrade();
 	std::cout << ", Sign Grade is " << this->getSignGrade() << _END << std::endl;
@@ -12,7 +12,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : _name("Forest"), _target("Targe
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target): _name("Forest"), _target(target), _signed(false), _execGrade(137), _signGrade(145) {
 	
-	std::cout << _DARKGREY _ITALIC "ShrubberyCreationForm Parametric Constructor called." << std::endl;
+	// std::cout << _DARKGREY _ITALIC "ShrubberyCreationForm Parametric Constructor called." << std::endl;
 	return;
 }
 
@@ -26,7 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src 
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {
 
-	std::cout << _DARKGREY _ITALIC "ShrubberyCreationForm Destructor called (" << getName() << ")" _END << std::endl;
+	// std::cout << _DARKGREY _ITALIC "ShrubberyCreationForm Destructor called (" << getName() << ")" _END << std::endl;
 	return;
 }
 
@@ -61,20 +61,14 @@ const int	&ShrubberyCreationForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) {
-	if (&executor == static_cast<Bureaucrat*>(0)) {
-		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
-		return;
-	}
-	if (executor.getGrade() > this->getExecGrade()) {
-		std::cout << _MAROON _BOLD "\nExecutor's grade is too low.\n" _END << std::endl;
-		return;
-	}
+void	ShrubberyCreationForm::executeAction(Bureaucrat const & executor) {
+
 	std::string	outfileName = this->getTarget() + "_shubbery";
 	std::ofstream ofs(outfileName.c_str());
 
 	if (!ofs.is_open())
 		throw OutfileOpening();
 	ofs << _TREE << "\n\n" << _TREE << "\n\n" << _TREE;
-	std::cout << _AQUAMARINE "Check your " << this->getTarget() << "_shubbery ! (づ •. •)づ\n" _END << std::endl;
+	std::cout << _AQUAMARINE "Check your " << this->getTarget();
+	std::cout << "_shubbery made by " << executor.getName() << " (づ •. •)づ\n" _END << std::endl;
 }

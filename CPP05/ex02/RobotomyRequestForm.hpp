@@ -29,14 +29,14 @@ public:
 	virtual const int			&getExecGrade() const;
 	virtual const int			&getSignGrade() const;
 
-	void						execute(Bureaucrat const & executor);
+	void						executeAction(Bureaucrat const & executor);
 
 	class RobotFailed : public std::exception
 	{
 		public:
 			virtual const char * what() const throw() {
 				
-				return(_RED "❌ Target could not be robotized\n" _END);
+				return(_RED _BOLD "❌ Target could not be robotized\n" _END);
 			}
 	};
 };

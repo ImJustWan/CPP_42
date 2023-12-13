@@ -2,7 +2,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : _name("Pardon"), _target("Target"), _signed(false), _execGrade(5), _signGrade(25) {
 
-	std::cout << _DARKGREY _ITALIC "Default PresidentialPardonForm Constructor called." << std::endl;
+	// std::cout << _DARKGREY _ITALIC "Default PresidentialPardonForm Constructor called." << std::endl;
 	std::cout << "Default name is : " << this->getName();
 	std::cout << ", Exec Grade is " << this->getExecGrade();
 	std::cout << ", Sign Grade is " << this->getSignGrade() << _END << std::endl;
@@ -11,7 +11,7 @@ PresidentialPardonForm::PresidentialPardonForm() : _name("Pardon"), _target("Tar
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):  _name("Pardon"), _target(target), _signed(false), _execGrade(5), _signGrade(25) {
 
-	std::cout << _DARKGREY _ITALIC "PresidentialPardonForm Parametric Constructor called." << std::endl;
+	// std::cout << _DARKGREY _ITALIC "PresidentialPardonForm Parametric Constructor called." << std::endl;
 	return;
 }
 
@@ -24,7 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & s
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {
 
-    std::cout << _DARKGREY _ITALIC "PresidentialPardonForm Destructor called (" << getName() << ")" _END << std::endl;
+    // std::cout << _DARKGREY _ITALIC "PresidentialPardonForm Destructor called (" << getName() << ")" _END << std::endl;
     return;
 }
 
@@ -59,15 +59,8 @@ const int	&PresidentialPardonForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-void	PresidentialPardonForm::execute(Bureaucrat const & executor) {
-	if (&executor == static_cast<Bureaucrat*>(0)) {
-		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
-		return;
-	}
-	if (executor.getGrade() > this->getExecGrade()) {
-		std::cout << _MAROON _BOLD "\nExecutor's grade is too low.\n" _END << std::endl;
-		return;
-	}
+void	PresidentialPardonForm::executeAction(Bureaucrat const & executor) {
+
 	std::cout << _AQUAMARINE << this->getTarget() << " has been pardonned by " << executor.getName();
 	std::cout << ", FREEDOM ৻(  •̀ ᗜ •́  ৻) " _END << std::endl;
 }

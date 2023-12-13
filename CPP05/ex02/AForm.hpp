@@ -33,7 +33,8 @@ public:
 	void						decrementSignGrade();
 	void						beSigned(Bureaucrat const &person);
 	
-	virtual void				execute(Bureaucrat const & executor);
+	void						execute(Bureaucrat const & executor);
+	virtual void				executeAction(Bureaucrat const & executor) = 0;
 
 	class GradeTooHighException : public std::exception
 	{

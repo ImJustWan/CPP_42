@@ -29,8 +29,8 @@ int main()
 
 	Intern newbie;
 
-	const AForm *newForm = 0;
-	const AForm *secondNew = 0;
+	AForm *newForm = 0;
+	AForm *secondNew = 0;
 
 	std::cout << _BOLD _GREY "\n\n🔹 Calling an intern 🔹\n" _END << std::endl;
 	try {
@@ -45,6 +45,8 @@ int main()
 
 	try {
 		std::cout << _BOLD _GREY "\n🔹 Garou tries to executes forms 🔹\n" _END << std::endl;
+		Garou.executeForm(*newForm);
+		Garou.signForm(*newForm);
 		Garou.executeForm(*newForm);
 		Garou.executeForm(*secondNew);
 	}

@@ -31,7 +31,7 @@ public:
 	{
 		public:
 			virtual const char * what() const throw() {
-				return(_BOLD _LIGHTGREY "This is too high ! Grade can only be between 1 and 150." _END);
+				return(_RED _BOLD "❌ Grade is too high, no can do\n" _END);
 			}
 	};
 
@@ -39,7 +39,7 @@ public:
 	{
 		public:
 			virtual const char * what() const throw() {
-				return(_BOLD _LIGHTGREY "This is too low ! Grade can only be between 1 and 150.\n" _END);
+				return(_RED _BOLD "❌ Grade is too low, no can do\n" _END);
 			}
 	};
 

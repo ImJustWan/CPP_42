@@ -2,7 +2,7 @@
 
 AForm::AForm() : _name("Betises"), _signed(false), _execGrade(75), _signGrade(75) {
 
-	std::cout << _DARKGREY _ITALIC "Default AForm Constructor called\n";
+	// std::cout << _DARKGREY _ITALIC "Default AForm Constructor called\n";
 	return;
 }
 
@@ -12,7 +12,7 @@ AForm::AForm(std::string name, int exec, int sign) : _name(name), _signed(false)
 		throw GradeTooHighException();
 	else if (exec > 150 || sign > 150)
 		throw GradeTooLowException();
-	std::cout << _DARKGREY _ITALIC "AForm Parametric Constructor called." << std::endl;
+	// std::cout << _DARKGREY _ITALIC "AForm Parametric Constructor called." << std::endl;
 	this->_execGrade = exec;
 	this->_signGrade = sign;
 	std::cout << this->getName() << " has been created : ";
@@ -30,7 +30,7 @@ AForm::AForm( AForm const & src ) : _name("Other" + src._name), _signed(false), 
 
 AForm::~AForm(void) {
 
-    std::cout << _DARKGREY _ITALIC "AForm Destructor called (" << getName() << ")" _END << std::endl;
+    // std::cout << _DARKGREY _ITALIC "AForm Destructor called (" << getName() << ")" _END << std::endl;
     return;
 }
 
@@ -129,5 +129,14 @@ void	AForm::execute(Bureaucrat const & executor) {
 		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
 		return;
 	}
-	std::cout << executor.getName() << "is executing." << std::endl;
+	else if (this->getSigned() == false) {
+		std::cout << _MAROON _BOLD "\nForm isn't signed, sorry.\n" _END << std::endl;
+		return;
+	}
+	else if (executor.getGrade() > this->getExecGrade()) {
+		std::cout << _MAROON _BOLD "\nExecutor's grade is too low.\n" _END << std::endl;
+		return;
+	}
+	// std::cout << executor.getName() << "is executing." << std::endl;
+	this->executeAction(executor);
 }

@@ -2,8 +2,8 @@
 
 Bureaucrat::Bureaucrat() : _name("Grint"), _grade(150) {
 
-	std::cout << _DARKGREY _ITALIC "Default Bureaucrat Constructor called\n";
-	std::cout << "Default name is Grint, and they start with the lowest grade of 150" _END << std::endl;
+	// std::cout << _DARKGREY _ITALIC "Default Bureaucrat Constructor called\n";
+	// std::cout << "Default name is Grint, and they start with the lowest grade of 150" _END << std::endl;
 	return;
 }
 
@@ -29,8 +29,8 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src._name), _grade(src.
 
 Bureaucrat::~Bureaucrat(void) {
 
-    std::cout << _DARKGREY _ITALIC "Bureaucrat Destructor called (";
-	std::cout << getName() << ")" _END << std::endl;
+    // std::cout << _DARKGREY _ITALIC "Bureaucrat Destructor called (";
+	// std::cout << getName() << ")" _END << std::endl;
     return;
 }
 
@@ -85,7 +85,7 @@ void	Bureaucrat::signForm(AForm &randomForm) {
 	if (this->getGrade() > randomForm.getSignGrade())
 		throw GradeTooLowException();
 	randomForm.setSigned(true);
-	std::cout << _AQUAMARINE _BOLD "\n" << this->getName() << " officially signed ";
+	std::cout << _AQUAMARINE _BOLD << this->getName() << " officially signed ";
 	std::cout << randomForm.getName() << " 🍾\n" _END << std::endl;
 }
 
@@ -94,12 +94,16 @@ void	Bureaucrat::executeForm(AForm const & form) {
 		std::cout << _MAROON _BOLD "\nThis form does not exist.\n" _END << std::endl;
 		return;
 	}
-	if (this->getGrade() > form.getExecGrade())
+	else if (this->getGrade() > form.getExecGrade())
 	{
 		std::cout << _BOLD _RED << this->getName() << "'s grade (" << this->getGrade();
 		std::cout << ") is too low to execute the form " << form.getName();
 		std::cout << " (level " << form.getExecGrade() << " is needed)\n" _END << std::endl;
 		throw GradeTooLowException();
+	}
+	else if (form.getSigned() == false) {
+		std::cout << _MAROON _BOLD "\nForm isn't signed, sorry.\n" _END << std::endl;
+		return;
 	}
 	std::cout << _AQUAMARINE _BOLD << this->getName() << " successfully executed ";
 	std::cout << form.getName() << " 🍾\n" _END << std::endl;

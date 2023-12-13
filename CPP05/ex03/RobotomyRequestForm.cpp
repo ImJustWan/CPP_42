@@ -2,7 +2,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : _name("Robot"), _target("Target"), _signed(false), _execGrade(45), _signGrade(72) {
 
-	std::cout << _DARKGREY _ITALIC "Default RobotomyRequestForm Constructor called." << std::endl;
+	// std::cout << _DARKGREY _ITALIC "Default RobotomyRequestForm Constructor called." << std::endl;
 	std::cout << "Default name is : " << this->getName();
 	std::cout << ", Exec Grade is " << this->getExecGrade();
 	std::cout << ", Sign Grade is " << this->getSignGrade() << _END << std::endl;
@@ -11,7 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm() : _name("Robot"), _target("Target"), 
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):  _name("Robot"), _target(target), _signed(false), _execGrade(45), _signGrade(72) {
 	
-	std::cout << _DARKGREY _ITALIC "RobotomyRequestForm Parametric Constructor called." << std::endl;
+	// std::cout << _DARKGREY _ITALIC "RobotomyRequestForm Parametric Constructor called." << std::endl;
 	return;
 }
 
@@ -24,7 +24,7 @@ RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) {
 
 RobotomyRequestForm::~RobotomyRequestForm(void) {
 
-    std::cout << _DARKGREY _ITALIC "RobotomyRequestForm Destructor called (" << getName() << ")" _END << std::endl;
+    // std::cout << _DARKGREY _ITALIC "RobotomyRequestForm Destructor called (" << getName() << ")" _END << std::endl;
     return;
 }
 
@@ -59,19 +59,14 @@ const int	&RobotomyRequestForm::getSignGrade(void) const {
 	return this->_signGrade;
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) {
-	if (&executor == static_cast<Bureaucrat*>(0)) {
-		std::cout << _MAROON _BOLD "\nI need a real Bureaucrat.\n" _END << std::endl;
-		return;
-	}
-	if (executor.getGrade() > this->getExecGrade()) {
-		std::cout << _MAROON _BOLD "\nExecutor's grade is too low.\n" _END << std::endl;
-		return;
-	}
+void	RobotomyRequestForm::executeAction(Bureaucrat const & executor) {
+
 	std::cout << _YELLOW "🫨  *drilling noises* 🫨\n" _END <<std::endl;
 	std::srand(time(NULL)); 
-	if ((std::rand()) % 2 == 0)
-		std::cout << _AQUAMARINE << this->getTarget() << " has been successfully robotomized └[∵┌]└[ ∵ ]┘[┐∵]┘ " _END << std::endl;
+	if ((std::rand()) % 2 == 0) {
+		std::cout << _AQUAMARINE << this->getTarget() << " has been successfully robotomized by ";
+		std::cout << executor.getName() << " └[∵┌]└[ ∵ ]┘[┐∵]┘ " _END << std::endl;
+	}
 	else
 		throw RobotFailed();
 }

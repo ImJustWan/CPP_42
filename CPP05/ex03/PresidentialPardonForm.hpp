@@ -29,7 +29,7 @@ public:
 	const int			&getExecGrade() const;
 	const int			&getSignGrade() const;
 
-	void				execute(Bureaucrat const & executor);
+	void				executeAction(Bureaucrat const & executor);
 	
 	class PresidentialDoom : public std::exception
 	{

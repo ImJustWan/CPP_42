@@ -1,0 +1,41 @@
+Type de conversions :
+
+- identitaire = reinterpretation
+
+-> reinterpretations
+	- upcast // same tree
+	- downcast
+	- type qualifier (const)
+
+5 casts en cpp :
+	- implicit
+	- static
+	- dynamic
+	- reinterpret 
+	- const
+	(+ "c cast")
+
+--------------------+-----------+-----------+-----------+-----------+---------------
+		Cast		|	Conv.	|	Reint.	|	Upcast	| Downcast	|	Type qual.	
+--------------------+-----------+-----------+-----------+-----------+---------------
+Implicit			|	Yes		|			|	Yes		|			|				
+Static_cast			|	Yes		|			|	Yes		|	Yes		|				
+Dynamic_cast		|			|			|	Yes		|	Yes		|				// Happens AT RUN TIME
+Const_cast			|			|			|			|			|	Yes			
+Reinterpret_cast	|			|	Yes		|	Yes		|	Yes		|				
+--------------------+-----------+-----------+-----------+-----------+---------------
+Legacy C cast		|	Yes		|	Yes		|	Yes		|	Yes		|	Yes			
+--------------------+-----------+-----------+-----------+-----------+---------------
+
+
+--------------------+-------------------+-----------------------+-------------------
+		Cast		|	Semantic check	|	Reliable and run	|	Tested at run	
+--------------------+-------------------+-----------------------+-------------------
+Implicit			|		Yes			|		Yes				|					
+Static_cast			|		Yes			|						|					
+Dynamic_cast		|		Yes			|		Yes				|		Yes			
+Const_cast			|					|						|					
+Reinterpret_cast	|					|						|					
+--------------------+-------------------+-----------------------+-------------------
+Legacy C cast		|					|						|					
+--------------------+-------------------+-----------------------+-------------------

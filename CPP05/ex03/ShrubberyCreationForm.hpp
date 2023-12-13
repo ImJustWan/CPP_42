@@ -13,6 +13,7 @@ private:
 	int					_execGrade;
 	int					_signGrade;
 
+
 public:
 
 	ShrubberyCreationForm();
@@ -27,7 +28,7 @@ public:
 	virtual const int			&getExecGrade() const;
 	virtual const int			&getSignGrade() const;
 
-	void						execute(Bureaucrat const & executor);
+	void						executeAction(Bureaucrat const & executor);
 	
 	class OutfileOpening : public std::exception
 	{

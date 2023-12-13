@@ -10,3 +10,4 @@ public:
 	~Sample( void );
 
 };
+0

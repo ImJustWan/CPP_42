@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include "colors.hpp"
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
 
 enum e_type {
 	_CHAR,
@@ -31,6 +34,7 @@ private:
 	static void		print_inf(std::string brut);
 
 	static int		_type;
+	static bool		_neg;
 
 public:
 	static void	convert(std::string const brut);
@@ -39,7 +43,15 @@ class FailedConversion : public std::exception
 	{
 		public:
 			virtual const char * what() const throw() {
-				return(_BOLD _SALMON "ERROR : non convertible string\n" _END);
+				return(_BOLD _SALMON "ERROR : string not handlable\n" _END);
 			}
 	};
+class NonPrintable : public std::exception
+	{
+		public:
+			virtual const char * what() const throw() {
+				return(_BOLD _SALMON "ERROR : char is a non-printable character\n" _END);
+			}
+	};
+	
 };

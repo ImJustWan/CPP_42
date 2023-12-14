@@ -24,19 +24,7 @@ void Harl::complain( std::string level ) {
         if (level == complaint[i])
 			break; 
 	switch ( i )
-	{
-		case 0:
-			this->debug();
-		case 1:
-			this->info();
-		case 2:
-			this->warning();
-		case 3:
-			this->error();
-			break;
-		default:
-			std::cout << "AIRSICK LOWLANDERS ╮(￣～￣)╭" << std::endl;
-	}
+	::
 	return;
 }
 

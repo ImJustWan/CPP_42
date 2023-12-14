@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+#include <limits>
+#include <cctype>
+#include <cstdlib>
 
 enum e_type {
 	_CHAR,
@@ -43,15 +46,8 @@ class FailedConversion : public std::exception
 	{
 		public:
 			virtual const char * what() const throw() {
-				return(_BOLD _SALMON "ERROR : string not handlable\n" _END);
+				return(_BOLD _SALMON "ERROR : can't handle that string\n" _END);
 			}
 	};
-class NonPrintable : public std::exception
-	{
-		public:
-			virtual const char * what() const throw() {
-				return(_BOLD _SALMON "ERROR : char is a non-printable character\n" _END);
-			}
-	};
-	
+
 };

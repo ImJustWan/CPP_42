@@ -2,13 +2,13 @@
 
 Serializer::Serializer( ) {
 
-	std::cout << _ITALIC "Serializer Copy Constructor called" _END << std::endl;
+	std::cout << _ITALIC _DARKGREY "Serializer Copy Constructor called" _END << std::endl;
 	return;
 }
 
 Serializer::~Serializer(void) {
 
-	std::cout << _ITALIC "Serializer Destructor called" _END << std::endl;
+	std::cout << _ITALIC _DARKGREY "Serializer Destructor called" _END << std::endl;
 	return;
 }
 

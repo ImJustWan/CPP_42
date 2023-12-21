@@ -13,17 +13,21 @@ int main()
 	Data *secondOne = Serializer::deserialize(newOne);
 	
 
-	std::cout << "\nInfos for tmp :\n" << (*tmp) << std::endl;
-	std::cout << "Infos for secondOne :\n" << (*secondOne) << std::endl;
+	std::cout << _RIVIERA _BOLD _ITALIC "\nInfos for tmp :\n" _END << (*tmp) << std::endl;
+	std::cout << _RIVIERA _BOLD _ITALIC "Infos for secondOne :\n" _END << (*secondOne) << std::endl;
+	
+	std::cout << _RIVIERA _BOLD _ITALIC "Some addresses : " _END << std::endl;
+	std::cout << "tmp (Data *) : " << tmp << std::endl;
+	std::cout << "secondOne (Data *) : " << secondOne << std::endl;
 	// std::cout << thirdOne << std::endl;
 
 	uintptr_t thirdOne = Serializer::serialize(secondOne);
-	std::cout << "Infos for thirdOne :" << std::endl;
+	std::cout << _RIVIERA _BOLD _ITALIC "\nInfos for thirdOne :" _END << std::endl;
 	std::cout << (*reinterpret_cast<Data *>(thirdOne)) << std::endl;
 
-	// std::cout << "secondOne is : " << secondOne << std::endl;
-	// std::cout << "reinterpret_cast<uintptr_t> of  is : ";
-	// std::cout << reinterpret_cast<uintptr_t>(newOne) << std::endl;
+	std::cout << "thirdOne is (uintptr_t): " << thirdOne << std::endl;
+	std::cout << "reinterpret_cast<uintptr_t> of secondOne is : ";
+	std::cout << reinterpret_cast<uintptr_t>(secondOne) << std::endl;
 
 	// Data *thirdOne(newOne);
 

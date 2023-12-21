@@ -3,7 +3,7 @@
 
 Data::Data() : _type("Data"), _nb(8) {
 
-	std::cout << _ITALIC "Data Constructor called" _END << std::endl;
+	std::cout << _ITALIC _DARKGREY "Data Constructor called" _END << std::endl;
 	return;
 }
 
@@ -23,7 +23,7 @@ Data::Data( Data const & src ) {
 
 Data::~Data(void) {
 
-	std::cout << _ITALIC "Data Destructor called" _END << std::endl;
+	std::cout << _ITALIC _DARKGREY "Data Destructor called" _END << std::endl;
 	return;
 }
 

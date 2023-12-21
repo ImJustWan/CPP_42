@@ -6,7 +6,7 @@ class C: public Base {};
 
 Base::~Base(void) {
 
-	std::cout << _ITALIC "Base Destructor called" _END << std::endl;
+	std::cout << _GREY _ITALIC "Base Destructor called" _END << std::endl;
 	return;
 }
 

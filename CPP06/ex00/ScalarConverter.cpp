@@ -30,7 +30,7 @@
 	{
 		long toInt = std::atol(brut.c_str());
 
-		if (std::isprint(toInt) != 0)
+		if (brut.length() < 3 && std::isprint(toInt) != 0)
 			std::cout << "char	:  '"	<< static_cast<char>(toInt) << "'" << std::endl;
 		else
 			std::cout << "char	:  "	<< "Non printable" << std::endl;
@@ -164,7 +164,8 @@
 		
 		if (brut.at(0) == '-')
 			ScalarConverter::_neg = true;
-		if (brut.length() == 1 && std::isalpha(brut.at(0)) != 0)
+		if (brut.length() == 1 && std::isprint(brut.at(0)) != 0
+			&& !std::isdigit(brut.at(0)))
 			ScalarConverter::_type = _CHAR;
 		else if (brut == "nan" || brut == "nanf")
 			ScalarConverter::_type = _NAN;
@@ -172,7 +173,7 @@
 			|| brut == "-inf" || brut == "-inff")
 			ScalarConverter::_type = _INF;
 		else if (ScalarConverter::numberz(brut))
-			throw FailedConversion();
+			ScalarConverter::_type = _NAN;
 	}
 
 	void	ScalarConverter::convert(std::string const brut) {

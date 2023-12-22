@@ -30,8 +30,8 @@ AForm::AForm( AForm const & src ) : _name("Other" + src._name), _signed(false), 
 
 AForm::~AForm(void) {
 
-    // std::cout << _DARKGREY _ITALIC "AForm Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	// std::cout << _DARKGREY _ITALIC "AForm Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 AForm & AForm::operator=( AForm const & n ) {

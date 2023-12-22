@@ -9,8 +9,8 @@ Sample::Sample(void) : foo(0) {
 
 Sample::~Sample(void) {
 
-    std::cout << "Destructor called" << std::endl;
-    return;
+	std::cout << "Destructor called" << std::endl;
+	return;
 }
 
 void	Sample::bar(void) const {

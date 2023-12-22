@@ -9,8 +9,8 @@ Sample::Sample( float const f ) : pi( f ), qd( 42 ) {
 
 Sample::~Sample( void ) {
 
-    std::cout << "Destructor called" << std::endl;
-    return;
+	std::cout << "Destructor called" << std::endl;
+	return;
 }
 
 void	Sample::bar( void ) const {

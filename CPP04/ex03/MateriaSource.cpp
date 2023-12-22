@@ -14,7 +14,7 @@ MateriaSource::MateriaSource() : _nbSpells(0) {
 MateriaSource::MateriaSource( MateriaSource const & src ) : _nbSpells(0) {
 
 	// std::cout << _ITALIC "MateriaSource Copy Constructor called" _END << std::endl;
-    *this = src;
+	*this = src;
 	for (int i = 0; i < 4; i++)
 		_spellBook[i] = src._spellBook[i]->clone();
 	return;
@@ -22,8 +22,8 @@ MateriaSource::MateriaSource( MateriaSource const & src ) : _nbSpells(0) {
 
 MateriaSource::~MateriaSource(void) {
 
-    // std::cout << _ITALIC "MateriaSource Destructor called" << std::endl;
-    for (int i = 0; i < _nbSpells && i < 4; i++)
+	// std::cout << _ITALIC "MateriaSource Destructor called" << std::endl;
+	for (int i = 0; i < _nbSpells && i < 4; i++)
 		if (this->_spellBook[i])
 			delete this->_spellBook[i];
 	return;

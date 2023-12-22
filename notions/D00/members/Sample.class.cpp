@@ -10,9 +10,9 @@ Sample::Sample(void) {
 
 Sample::~Sample(void) {
 
-    std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 	Sample::_nbInst -= 1;
-    return;
+	return;
 }
 
 int	Sample::getNbInst(void) {

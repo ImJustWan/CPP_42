@@ -1,5 +1,5 @@
 # Das Progamm
-NAME 				:=	convert
+NAME 				:=	basics
 
 # Compiler
 CXX					:=	c++
@@ -8,11 +8,10 @@ CXXFLAGS			:=	-Wall -Werror -Wextra -std=c++98
 DEPS				:=	${OBJS:.o=.d}
 
 # Includes
-INC					:=	whatever.hpp 
+INC					:=	Basics.hpp 
 
 # Sources	
-SRCS				:=	main.cpp \
-						whatever.cpp 
+SRCS				:=	main.cpp
 		
 # Objects
 OBJS_PATH			:=	./objs

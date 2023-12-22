@@ -26,9 +26,9 @@ Dog::Dog( Dog const & src ) {
 
 Dog::~Dog(void) {
 
-    delete _brain;
+	delete _brain;
 	std::cout << _ITALIC "Dog Destructor called" << std::endl;
-    return;
+	return;
 }
 
 Dog & Dog::operator=( Dog const & rhs ) {

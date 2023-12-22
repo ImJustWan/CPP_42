@@ -22,7 +22,7 @@ class AMateria
 		AMateria	&operator=( AMateria const & rhs );
 
 		std::string const 		&getType() const; //Returns the materia type
-		void   					setType (std::string const type);
+		void						setType (std::string const type);
 
 		virtual AMateria*	clone() const = 0;
 		virtual void 		use(ICharacter& target) = 0;

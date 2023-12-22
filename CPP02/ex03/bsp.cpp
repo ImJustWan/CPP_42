@@ -2,7 +2,7 @@
 #include "Point.hpp"
 
 
-float   Point::triangleArea(Point const a, Point const b, Point const c)
+float	Point::triangleArea(Point const a, Point const b, Point const c)
 {
 	float ab = (a._x.operator*(b._y).toFloat() - b._x.operator*(a._y).toFloat());
 	float bc = (b._x.operator*(c._y).toFloat() - c._x.operator*(b._y).toFloat());

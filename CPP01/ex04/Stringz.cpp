@@ -1,17 +1,5 @@
 #include "Stringz.hpp"
 
-void	replaceLine(std::string& line, std::string s1, std::string s2) 
-{
-	// size_t	i = 0;
-
-	// while ((i = line.find(s1, i)) != std::string::npos)
-	// {
-	// 	line = line.substr(0, i) + s2 + line.substr(i + s1.length());
-	// 	i += s2.length();
-	// }	
-
-}
-
 int	replaceStrings(std::string infileName, std::string s1, std::string s2)
 {
 	std::string outfileName;

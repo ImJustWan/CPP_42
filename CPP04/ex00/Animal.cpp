@@ -22,8 +22,8 @@ Animal::Animal( Animal const & src ) {
 
 Animal::~Animal(void) {
 
-    std::cout << _ITALIC "Animal Destructor called" _END << std::endl;
-    return;
+	std::cout << _ITALIC "Animal Destructor called" _END << std::endl;
+	return;
 }
 
 Animal & Animal::operator=( Animal const & rhs ) {

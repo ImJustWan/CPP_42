@@ -4,10 +4,10 @@ class Cat
 public:
 	Cat();
 	Cat( Cat const &);
-    ~Cat();
+	~Cat();
 
 	class Leg 
-    {
-        //
-    };
+	{
+		//
+	};
 };

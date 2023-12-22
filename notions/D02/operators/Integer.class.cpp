@@ -8,7 +8,7 @@ Integer::Integer(int const n) : _n( n ) {
 
 Integer::~Integer( void ) {
 	std::cout << "Destructor called with value " << this->_n << std::endl;
-    return;
+	return;
 }
 
 int	Integer::getValue( void ) const {

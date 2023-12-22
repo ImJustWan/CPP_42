@@ -28,8 +28,8 @@ Fixed::Fixed( Fixed const & src ) : _n(src._n) {
 
 Fixed::~Fixed(void) {
 
-    std::cout << _ITALIC "Destructor called" _END << std::endl;
-    return;
+	std::cout << _ITALIC "Destructor called" _END << std::endl;
+	return;
 }
 
 int Fixed::getRawBits( void ) const {
@@ -37,7 +37,7 @@ int Fixed::getRawBits( void ) const {
 }
 
 void Fixed::setRawBits( int const raw ){
-    this->_n = raw;
+	this->_n = raw;
 }
 
 int		Fixed::toInt( void ) const {

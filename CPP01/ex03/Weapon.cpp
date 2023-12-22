@@ -18,7 +18,7 @@ const std::string&	Weapon::getType ( void ) const {
 	return _weaponType;
 }
 
-void    Weapon::setType ( std::string newWeapon ) {
+void	Weapon::setType ( std::string newWeapon ) {
 
 	std::cout << _ITALIC "Weapon of choice is now " << newWeapon << "." _END << std::endl;
 	this->_weaponType = newWeapon;

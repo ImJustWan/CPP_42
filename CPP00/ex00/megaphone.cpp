@@ -12,7 +12,7 @@ int main(int ac, char **av) {
 			  std::cout << (char)toupper(av[i][j]);
 			std::cout << " ";
 		}
-   std::cout << std::endl;
+	std::cout << std::endl;
 
 	return 0;
 }

@@ -22,8 +22,8 @@ wrongCat::wrongCat( wrongCat const & src ) {
 
 wrongCat::~wrongCat(void) {
 
-    std::cout << _ITALIC "wrongCat Destructor called" _END << std::endl;
-    return;
+	std::cout << _ITALIC "wrongCat Destructor called" _END << std::endl;
+	return;
 }
 
 wrongCat & wrongCat::operator=( wrongCat const & rhs ) {

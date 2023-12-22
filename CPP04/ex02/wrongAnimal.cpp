@@ -22,8 +22,8 @@ wrongAnimal::wrongAnimal( wrongAnimal const & src ) {
 
 wrongAnimal::~wrongAnimal(void) {
 
-    std::cout << _ITALIC "wrongAnimal Destructor called" _END << std::endl;
-    return;
+	std::cout << _ITALIC "wrongAnimal Destructor called" _END << std::endl;
+	return;
 }
 
 wrongAnimal & wrongAnimal::operator=( wrongAnimal const & rhs ) {

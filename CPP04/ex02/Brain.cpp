@@ -24,8 +24,8 @@ Brain::Brain( Brain const & src ) {
 
 Brain::~Brain(void) {
 
-    std::cout << _ITALIC "Brain Destructor called" << std::endl;
-    return;
+	std::cout << _ITALIC "Brain Destructor called" << std::endl;
+	return;
 }
 
 Brain & Brain::operator=( Brain const & rhs ) {
@@ -33,11 +33,11 @@ Brain & Brain::operator=( Brain const & rhs ) {
 	std::cout << _ITALIC "Brain Copy Assignement operator called" _END << std::endl;
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = rhs._ideas[i]; 
-    return *this;
+	return *this;
 
 }
 
 std::string Brain::getIdea(int index) const
 {
-    return _ideas[index];
+	return _ideas[index];
 }

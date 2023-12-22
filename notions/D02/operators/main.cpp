@@ -3,8 +3,8 @@
 
 int main() {
 
-	Integer x(30);    
-	Integer y(10);    
+	Integer x(30);	
+	Integer y(10);	
 	Integer z(0);
 
 	std::cout << "Value of x : " << x << std::endl;

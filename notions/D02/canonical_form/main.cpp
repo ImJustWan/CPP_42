@@ -3,8 +3,8 @@
 
 int main() {
 
-	Sample instance1;    
-	Sample instance2(42);    
+	Sample instance1;	
+	Sample instance2(42);	
 	Sample instance3(instance1);
 
 	std::cout << instance1 << std::endl;

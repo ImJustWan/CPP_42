@@ -1,13 +1,13 @@
 #include <iostream>
 
 int main(void) {
-    char buff [512];
+	char buff [512];
 
-    std::cout << "Hello World !" << std::endl;
+	std::cout << "Hello World !" << std::endl;
 
-    std::cout << "Input a word: ";
-    std::cin >> buff;
-    std::cout << "You entered [" << buff << "]" << std::endl;
+	std::cout << "Input a word: ";
+	std::cin >> buff;
+	std::cout << "You entered [" << buff << "]" << std::endl;
 
-    return 0;
+	return 0;
 }

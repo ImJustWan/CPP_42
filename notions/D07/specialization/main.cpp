@@ -3,7 +3,7 @@
 
 int main()
 {
-	Pair <int, int>					p1(4,2);
+	Pair <int, int>					p1(4, 2);
 	Pair <std::string, float>		p2(std::string("Pi"), 3.14f);
 	Pair<float, bool>				p3(4.2f, true);
 	Pair<bool, bool>				p4(true, false);

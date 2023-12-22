@@ -24,8 +24,8 @@ DiamondTrap::DiamondTrap( DiamondTrap const & src ) : ClapTrap(src._name) {
 
 DiamondTrap::~DiamondTrap(void) {
 
-    std::cout << _ITALIC "DiamondTrap Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	std::cout << _ITALIC "DiamondTrap Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 DiamondTrap & DiamondTrap::operator=( DiamondTrap const & n ) {

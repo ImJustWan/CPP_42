@@ -30,8 +30,8 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src._name), _grade(src.
 
 Bureaucrat::~Bureaucrat(void) {
 
-    std::cout << _DARKGREY _ITALIC "Bureaucrat Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	std::cout << _DARKGREY _ITALIC "Bureaucrat Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 Bureaucrat & Bureaucrat::operator=( Bureaucrat const & n ) {

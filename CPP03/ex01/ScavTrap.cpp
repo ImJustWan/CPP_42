@@ -25,8 +25,8 @@ ScavTrap::ScavTrap( ScavTrap const & src ) : ClapTrap(src) {
 
 ScavTrap::~ScavTrap(void) {
 
-    std::cout << _ITALIC "ScavTrap Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	std::cout << _ITALIC "ScavTrap Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 
@@ -71,7 +71,7 @@ void	ScavTrap::attack(const std::string& target)
 
 }
 
-void    ScavTrap::guardGate() {
+void	ScavTrap::guardGate() {
 		std::cout << _BOLD _ITALIC _CYAN << getName() << " was never intended to create violence, they're now in Gate Keeper Mode. (￣^￣)ゞ\n" _END << std::endl;
 
 }

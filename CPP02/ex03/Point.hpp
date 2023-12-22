@@ -6,7 +6,7 @@
 
 class Point {
 public:
-	Point(void);                // canon
+	Point(void);				// canon
 	Point(Point const &src);	// canon
 	Point(float const xf, float const yf);
 	~Point(void);				// canon

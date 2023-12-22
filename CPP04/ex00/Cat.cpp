@@ -22,8 +22,8 @@ Cat::Cat( Cat const & src ) {
 
 Cat::~Cat(void) {
 
-    std::cout << _ITALIC "Cat Destructor called" _END << std::endl;
-    return;
+	std::cout << _ITALIC "Cat Destructor called" _END << std::endl;
+	return;
 }
 
 Cat & Cat::operator=( Cat const & rhs ) {

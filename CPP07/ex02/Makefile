@@ -1,5 +1,5 @@
 # Das Progamm
-NAME 				:=	iter
+NAME 				:=	array
 
 # Compiler
 CXX					:=	c++
@@ -8,10 +8,10 @@ CXXFLAGS			:=	-Wall -Werror -Wextra -std=c++98
 DEPS				:=	${OBJS:.o=.d}
 
 # Includes
-INC					:=	iter.hpp 
+INC					:=	Array.hpp 
 
 # Sources	
-SRCS				:=	main.cpp
+SRCS				:=	main.cpp \
 		
 # Objects
 OBJS_PATH			:=	./objs
@@ -22,7 +22,7 @@ all	:	$(NAME)
 
 $(NAME)	: $(OBJS) $(INC)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-	@echo "👾 ex01 - WOOP WOOP 👾"
+	@echo "👾 ex02 - WOOP WOOP 👾"
 
 $(OBJS_PATH)/%.o: %.cpp
 	@mkdir -p $(OBJS_PATH)

@@ -10,6 +10,6 @@ public:
 	Sample( float const f );
 	~Sample( void );
 
-	void    bar( void ) const;
+	void	bar( void ) const;
 
 };

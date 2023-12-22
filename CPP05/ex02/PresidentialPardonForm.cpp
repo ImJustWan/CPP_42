@@ -24,8 +24,8 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & s
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {
 
-    // std::cout << _DARKGREY _ITALIC "PresidentialPardonForm Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	// std::cout << _DARKGREY _ITALIC "PresidentialPardonForm Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 PresidentialPardonForm & PresidentialPardonForm::operator=( PresidentialPardonForm const & n ) {

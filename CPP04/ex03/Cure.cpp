@@ -20,14 +20,14 @@ Cure::Cure( Cure const & src ) {
 
 	// std::cout << _ITALIC "Cure Copy Constructor called" _END << std::endl;
 	this->setType("cure");
-    *this = src;
+	*this = src;
 	return;
 }
 
 Cure::~Cure(void) {
 
-    // std::cout << _ITALIC "Cure Destructor called" << std::endl;
-    return;
+	// std::cout << _ITALIC "Cure Destructor called" << std::endl;
+	return;
 }
 
 Cure & Cure::operator=( Cure const & rhs ) {

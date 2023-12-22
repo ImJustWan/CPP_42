@@ -15,7 +15,7 @@ public:
 	ScavTrap & operator=( ScavTrap const & rhs );
 
 	void	attack(const std::string& target);
-    void    guardGate();
+	void	guardGate();
 	void	setStart(std::string name);
 
 };

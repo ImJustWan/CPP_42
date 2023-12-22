@@ -3,18 +3,18 @@
 
 int main()
 {
-    std::ifstream ifs("numbers"); // input stream
-    unsigned int    dst;
-    unsigned int    dst2;
+	std::ifstream ifs("numbers"); // input stream
+	unsigned int	dst;
+	unsigned int	dst2;
 
-    ifs >> dst >> dst2;
+	ifs >> dst >> dst2;
 
-    std::cout << dst << " " << dst2 << std::endl;
-    ifs.close();
+	std::cout << dst << " " << dst2 << std::endl;
+	ifs.close();
 
-    std::ofstream   ofs("test.out");
+	std::ofstream	ofs("test.out");
 
-    ofs << "i like ponies a whole damn lot" << std::endl;
-    ofs.close();
-    return 0;
+	ofs << "i like ponies a whole damn lot" << std::endl;
+	ofs.close();
+	return 0;
 }

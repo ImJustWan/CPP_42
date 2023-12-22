@@ -9,8 +9,8 @@ class HumanB {
 	public:
 		HumanB( std::string name );
 		~HumanB();
-		void    setWeapon ( const Weapon& weaponRef );
-		void    attack();
+		void	setWeapon ( const Weapon& weaponRef );
+		void	attack();
 
 	private:
 		std::string		_name;

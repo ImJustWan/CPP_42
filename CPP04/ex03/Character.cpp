@@ -24,7 +24,7 @@ Character::Character(std::string const & name) : _name(name), _takenSpots(0) {
 Character::Character( Character const & src ) : _name(src._name), _takenSpots(0) {
 
 	// std::cout << _ITALIC "Character Copy Constructor called" _END << std::endl;
-    for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		_inventory[i] = src._inventory[i];
 		_inventory[i]->setType(src._inventory[i]->getType());
@@ -35,10 +35,10 @@ Character::Character( Character const & src ) : _name(src._name), _takenSpots(0)
 
 Character::~Character(void) {
 
-    // std::cout << _ITALIC "Character Destructor called" << std::endl;
+	// std::cout << _ITALIC "Character Destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
 		delete this->_inventory[i];
-    return;
+	return;
 }
 
 Character & Character::operator=( Character const & rhs ) {

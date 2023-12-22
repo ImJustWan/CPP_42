@@ -16,7 +16,7 @@ public:
 	void	setRawBits( int const raw );
 
 private:
-	int 				_n;
+	int					_n;
 	static const int	_rawBits = 8;
 
 };

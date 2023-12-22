@@ -28,8 +28,8 @@ FragTrap::FragTrap( FragTrap const & src ) : ClapTrap(src) {
 
 FragTrap::~FragTrap(void) {
 
-    std::cout << _ITALIC "FragTrap Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	std::cout << _ITALIC "FragTrap Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 
@@ -65,7 +65,7 @@ void	FragTrap::attack(const std::string& target)
 
 }
 
-void    FragTrap::highFivesGuys() {
+void	FragTrap::highFivesGuys() {
 		std::cout << _BOLD _ITALIC _CYAN << getName() << " chose peace, and is now proposing a high five ヽ(○｀･v･)人(･v･´●)ﾉ\n" _END << std::endl;
 
 }

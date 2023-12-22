@@ -13,7 +13,7 @@ HumanB::~HumanB( void ) {
 	return;
 }
 
-void    HumanB::setWeapon ( const Weapon& weaponRef ) {
+void	HumanB::setWeapon ( const Weapon& weaponRef ) {
 	this->_weapon = &weaponRef;
 }
 

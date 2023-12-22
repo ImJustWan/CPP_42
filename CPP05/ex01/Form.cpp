@@ -31,8 +31,8 @@ Form::Form( Form const & src ) : _name("Other" + src._name), _signed(false), _ex
 
 Form::~Form(void) {
 
-    std::cout << _DARKGREY _ITALIC "Form Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	std::cout << _DARKGREY _ITALIC "Form Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 Form & Form::operator=( Form const & n ) {

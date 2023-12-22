@@ -22,8 +22,8 @@ ClapTrap::ClapTrap( ClapTrap const & src ) : _name(src._name) {
 
 ClapTrap::~ClapTrap(void) {
 
-    std::cout << _ITALIC "ClapTrap Destructor called (" << getName() << ")" _END << std::endl;
-    return;
+	std::cout << _ITALIC "ClapTrap Destructor called (" << getName() << ")" _END << std::endl;
+	return;
 }
 
 ClapTrap & ClapTrap::operator=( ClapTrap const & n ) {

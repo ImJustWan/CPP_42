@@ -4,7 +4,7 @@ int main()
 {
 	float 	a = 420.042f;							// Ref value
 
-	void	*b = &a;							    // Implicit promotion -> OK
+	void	*b = &a;								// Implicit promotion -> OK
 	int		*c = reinterpret_cast<int *>(b);		// Explicit demotion -> Ok, we're in charge
 	int		&d = reinterpret_cast<int &>(b);		// Explicit demotion -> Ok, we're in charge
 

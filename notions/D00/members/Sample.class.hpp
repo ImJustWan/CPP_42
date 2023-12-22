@@ -9,7 +9,7 @@ public:
 	Sample(void);
 	~Sample(void);
 
-	static int   getNbInst(void);
+	static int	getNbInst(void);
 
 private:
 

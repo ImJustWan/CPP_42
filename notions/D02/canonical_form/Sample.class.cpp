@@ -22,8 +22,8 @@ Sample::Sample( Sample const & src ) {
 
 Sample::~Sample(void) {
 
-    std::cout << "Destructor called" << std::endl;
-    return;
+	std::cout << "Destructor called" << std::endl;
+	return;
 }
 
 int Sample::getFoo( void ) const {

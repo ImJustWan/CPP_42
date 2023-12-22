@@ -8,6 +8,7 @@ class Pair {
 			std::cout << "Generic template" << std::endl;
 			return;
 		}
+
 		~Pair<T,U>(){}
 
 		T const &fst() const {return this->_lhs;}
@@ -15,8 +16,8 @@ class Pair {
 
 	private:
 
-		T const &_lhs;
-		U const &_rhs;
+		T const _lhs;
+		U const _rhs;
 
 		Pair< T, U >();
 
@@ -26,18 +27,19 @@ template< typename U >
 class Pair<int, U> {
 	public:
 		Pair<int, U>(int lhs, U const &rhs) : _lhs(lhs), _rhs(rhs) {
-			std::cout << "Int partial specialization" << std::endl;
+			std::cout << "Int partial specialization for " << lhs << " and " << rhs << std::endl;
 			return;
 		}
-		~Pair<int,U>(){}
+
+		~Pair<int, U>(){}
 
 		int			fst() const {return this->_lhs;}
-		U const		&snd() const {return this->_rhs;}
+		U const	&	snd() const {return this->_rhs;}
 
 	private:
 
 		int		_lhs;
-		U const	&_rhs;
+		U const	_rhs;
 
 		Pair< int, U >();
 
@@ -62,7 +64,7 @@ class Pair<bool, bool> {
 
 	private:
 
-		int	_n;
+		int		_n;
 
 		Pair< bool, bool >();
 

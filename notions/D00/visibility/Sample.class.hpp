@@ -9,12 +9,12 @@ public:
 	Sample(void);
 	~Sample(void);
 
-	void    publicBar(void) const;
+	void	publicBar(void) const;
 
 private:
 
 	int		_privateFoo;
 
-	void    _privateBar(void) const;
+	void	_privateBar(void) const;
 
 };

@@ -20,8 +20,8 @@ public:
 	float	toFloat( void ) const;
 
 private:
-	int 				_n;
-	static const int	_rawBits = 8;
+	int					_n;
+	static const int	_rawBits = CPP02/ex03/Fixed.hpp8;
 
 };
 

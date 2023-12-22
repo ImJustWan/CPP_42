@@ -9,8 +9,8 @@ Sample::Sample(int v) : _foo(v) {
 
 Sample::~Sample(void) {
 
-    std::cout << "Destructor called" << std::endl;
-    return;
+	std::cout << "Destructor called" << std::endl;
+	return;
 }
 
 int	Sample::getFoo(void) const {

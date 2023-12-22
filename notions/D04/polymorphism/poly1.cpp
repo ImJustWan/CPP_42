@@ -3,12 +3,12 @@
 
 class Character {
 public:
-	virtual void    sayHello(std::string const & target);
+	virtual void	sayHello(std::string const & target);
 };
 
 class Warrior : public Character {
 public:
-	void    sayHello(std::string const & target);
+	void	sayHello(std::string const & target);
 };
 
 class Cat {
@@ -23,7 +23,7 @@ void Character::sayHello(std::string const &target)
 
 void Warrior::sayHello(std::string const &target)
 {
-    std::cout << "Fuck off " << target << ", I hate you." << std::endl;
+	std::cout << "Fuck off " << target << ", I hate you." << std::endl;
 }
 
 int main()

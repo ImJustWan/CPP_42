@@ -14,17 +14,17 @@ int main(int, char**)
 		mirror[i] = value;
 	}
 	//SCOPE
-	// {
-	// 	Array<int> tmp = numbers;
-	// 	Array<int> test(tmp);
-	// }
+	{
+		Array<int> tmp = numbers;
+		Array<int> test(tmp);
+	}
 
-	// numbers[88] += 88;
+	numbers[88] += 88;
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		if (mirror[i] != numbers[i])
 		{
-			std::cerr << "At index" << i;
+			std::cerr << "At index " << i;
 			std::cerr << ", mirror and numbers didn't save the same value!!" << std::endl;
 			break;
 		}

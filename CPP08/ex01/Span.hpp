@@ -14,12 +14,15 @@ private:
 
 	Span();
 
+	Span & operator=( Span const & rhs );
+
 	unsigned int		_maxSize;
 
 public:
 
 	std::vector<int>	_spanVector;
 
+	Span(const Span &src);
 	Span(unsigned int N);
 	~Span();
 
@@ -29,7 +32,10 @@ public:
 	int		shortestSpan();
 	int		longestSpan();
 
-	unsigned int		getMaxSize();
+	unsigned int				getMaxSize();
+	size_t						getCurrSize();
+	std::vector<int>::iterator	getBegin();
+	std::vector<int>::iterator	getEnd();
 
 };
 

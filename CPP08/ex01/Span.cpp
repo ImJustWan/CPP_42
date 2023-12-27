@@ -6,6 +6,21 @@ Span::~Span(void) {
 	return;
 }
 
+Span::Span(const Span &src){
+	(void)src;
+};
+
+Span & Span::operator=( Span const & rhs ) {
+
+	std::cout << "Copy Assignement operator called" << std::endl;
+	if (this != &rhs)
+	{
+		this->_maxSize = rhs._maxSize;
+		this->_spanVector = rhs._spanVector;
+	}
+	return *this;
+
+}
 
 Span::Span(unsigned int N) : _maxSize(N) {
 }
@@ -14,17 +29,32 @@ unsigned int	Span::getMaxSize(void) {
 	return this->_maxSize;
 }
 
+size_t Span::getCurrSize() {
+	return this->_spanVector.size();
+}
+
+std::vector<int>::iterator	Span::getBegin() {
+	return this->_spanVector.begin();
+}
+
+std::vector<int>::iterator	Span::getEnd() {
+	return this->_spanVector.end();
+}
+
+
 void	Span::addNumber(int const value)
 {
 	if (this->_spanVector.size() == this->getMaxSize())
 		throw FullSpanException();
 	this->_spanVector.push_back(value);
-	std::cout << _GREY _ITALIC "Succesfully added : " << value << _END << std::endl;
+	// std::cout << _GREY _ITALIC "Succesfully added : " << value << _END << std::endl;
 }
+
+// addNumber(vector) uses .insert(X, Y, Z) method, which reallocates storage if needed
+// and inserts from Y to Z elements of vector parameter, starting at X 
 
 void	Span::addNumber(std::vector<int> vctr)
 {
-	std::cout << _RIVIERA _ITALIC "\nInserting current instance's vector into parameter's vector.\n" _END << std::endl;
 	if (this->_spanVector.size() + vctr.size() >= this->_maxSize)
 		throw FullSpanException();
 	this->_spanVector.insert(this->_spanVector.end(), vctr.begin(), vctr.end());
@@ -39,7 +69,6 @@ void	Span::removeNumber()
 
 int	Span::shortestSpan()
 {
-	// std::cout << "SIZE : " << this->_spanVector.size() << std::endl;
 	if (this->_spanVector.size() < 2)
 		throw NoSpanException();
 

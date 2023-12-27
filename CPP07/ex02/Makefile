@@ -5,10 +5,9 @@ NAME 				:=	array
 CXX					:=	c++
 CXXFLAGS			:=	-Wall -Werror -Wextra -std=c++98
 
-DEPS				:=	${OBJS:.o=.d}
 
 # Includes
-INC					:=	Array.hpp 
+INC					:=	Array.tpp
 
 # Sources	
 SRCS				:=	main.cpp \
@@ -17,6 +16,7 @@ SRCS				:=	main.cpp \
 OBJS_PATH			:=	./objs
 OBJS_NAMES			:=	$(SRCS:.cpp=.o)
 OBJS				:=	$(addprefix $(OBJS_PATH)/, $(OBJS_NAMES))
+DEPS				:=	${OBJS:.o=.d}
 
 all	:	$(NAME)
 

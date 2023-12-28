@@ -54,7 +54,7 @@ int main()
 	std::vector<int>	smartSpan(88, 88);
 	Span 				stonkSpan = Span(MAX_N);
 
-	// smartSpan was created with '88' 500 times ; uncomment to print
+	// Uncomment to print
 	// for (std::vector<int>::iterator i = smartSpan.begin(); i != smartSpan.end(); ++i) {
 	// 	std::cout << *i << std::endl;
 	// }
@@ -67,7 +67,9 @@ int main()
 		std::cout << "\nSize of SMART before : " << smartSpan.size() << std::endl;
 		std::cout << "Size of STONK before : " << stonkSpan.getCurrSize() << std::endl;
 		std::cout << _RIVIERA _ITALIC "\nInserting 12 elements from stonk.begin at smart.begin\n" _END << std::endl;
-		
+	
+
+		// .insert() : avoids multiple addNumber() calls 
 		smartSpan.insert(smartSpan.begin(), stonkSpan.getBegin(), stonkSpan.getBegin() + 12);
 
 		std::cout << "Size of SMART after : " << smartSpan.size() << std::endl;

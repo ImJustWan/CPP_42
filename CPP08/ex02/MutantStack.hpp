@@ -6,6 +6,7 @@
 #include <ctime>
 #include <vector>
 #include <stack>
+#include <list>
 
 
 template<typename T>
@@ -18,8 +19,8 @@ class MutantStack : public std::stack<T> {
 
 		typedef typename std::deque<T>::iterator	iterator;
 
-		iterator			begin();
-		iterator			end();
+		iterator			getBegin();
+		iterator			getEnd();
 
 };
 

@@ -6,7 +6,7 @@
 class NoMatchException : public std::exception {
 	public:
 		virtual const char * what() const throw() {
-			return(_BOLD _SALMON "No match was found, sorry (‘-‘)ゞ\n" _END);
+			return( _SALMON "No match was found, sorry (‘-‘)ゞ\n" _END);
 		}
 };
 

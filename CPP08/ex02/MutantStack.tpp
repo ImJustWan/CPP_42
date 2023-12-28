@@ -25,12 +25,12 @@ MutantStack<T> & MutantStack<T>::operator=( MutantStack <T> const & n ) {
 // this->c accesses the underlying container, to go around stack not having iterators
 
 template<typename T>
-typename MutantStack<T>::iterator MutantStack<T>::begin() {
+typename MutantStack<T>::iterator MutantStack<T>::getBegin() {
 	return this->c.begin();
 }
 
 template<typename T>
-typename MutantStack<T>::iterator MutantStack<T>::end() {
+typename MutantStack<T>::iterator MutantStack<T>::getEnd() {
 	return this->c.end();
 
 }

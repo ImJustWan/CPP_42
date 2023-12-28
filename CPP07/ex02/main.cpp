@@ -36,7 +36,14 @@ int main(int, char**)
 	}
 
 	std::cout << _GREY "\n🔹 Changing number at index[88] 🔹\n" _END << std::endl;
-	numbers[88] += 88;
+	try {
+		numbers[88] += 88;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		if (mirror[i] != numbers[i])

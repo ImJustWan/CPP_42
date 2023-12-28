@@ -1,5 +1,12 @@
 #include "Span.hpp"
 
+
+Span::Span(void) {
+
+	std::cout << _GREY _ITALIC "Span Constructor called" _END << std::endl;
+	return;
+}
+
 Span::~Span(void) {
 
 	std::cout << _GREY _ITALIC "Span Destructor called" _END << std::endl;
@@ -47,6 +54,7 @@ void	Span::addNumber(int const value)
 	if (this->_spanVector.size() == this->getMaxSize())
 		throw FullSpanException();
 	this->_spanVector.push_back(value);
+	// Uncomment to display addNumber calls
 	// std::cout << _GREY _ITALIC "Succesfully added : " << value << _END << std::endl;
 }
 

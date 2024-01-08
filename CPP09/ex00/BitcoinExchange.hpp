@@ -6,6 +6,8 @@
 #include <sstream>
 #include <string>
 #include <map>
+#include <limits.h>
+
 
 class BitcoinExchange {
 	
@@ -22,13 +24,41 @@ class BitcoinExchange {
 		BitcoinExchange(char *inputName);
 		~BitcoinExchange();
 
-		void	priceConversion();
+		void	handleInput();
+		void	createDatabase();
+		bool	checkDate(std::string date);
+		float	getValueAtDate(std::string date);
+		void	priceConversion(std::string date, float value);
 
 	class InaccessibleFile : public std::exception
 	{
 		public:
 			virtual const char * what() const throw() {
 				return(_RED _BOLD "❌  Could not access the file\n" _END);
+			}
+	};
+
+	class InvalidDate : public std::exception
+	{
+		public:
+			virtual const char * what() const throw() {
+				return(_SALMON "Invalid date" _END);
+			}
+	};
+
+	class NegativeNumber : public std::exception
+	{
+		public:
+			virtual const char * what() const throw() {
+				return(_SALMON "Not a positive number" _END);
+			}
+	};
+
+	class TooBigNumber : public std::exception
+	{
+		public:
+			virtual const char * what() const throw() {
+				return(_SALMON "Error: too large a number." _END);
 			}
 	};
 };

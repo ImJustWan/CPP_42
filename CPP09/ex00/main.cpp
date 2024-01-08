@@ -11,7 +11,7 @@ int main(int ac, char **av)
 	try {
 		BitcoinExchange test(av[1]);
 		test.createDatabase();
-		test.priceConversion();
+		test.handleInput();
 	}
 	catch(const BitcoinExchange::InaccessibleFile e) {
 		std::cout << e.what() << std::endl;

@@ -141,7 +141,7 @@ void	BitcoinExchange::handleInput()
 		else if (buf.find(" | ") == std::string::npos) {
 			std::cout << _SALMON "Wrong format ! Accepted : is date | value" _END << std::endl; 
 		}
-		else if (std::getline(streamBuf, date, '|') && streamBuf >> value) {
+		else if (std::getline(streamBuf, date, '|') && date.length() == 11 && streamBuf >> value) {
 			try {
 				priceConversion(date, value);
 			}
@@ -149,6 +149,8 @@ void	BitcoinExchange::handleInput()
 				std::cout << e.what() << std::endl;
 			}
 		}
+		else
+			std::cout << _SALMON "Wrong format ! Accepted : is date | value" _END << std::endl; 
 	}
 	return ;
 }

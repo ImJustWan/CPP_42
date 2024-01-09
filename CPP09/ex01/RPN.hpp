@@ -5,8 +5,10 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <string.h>
 #include <stack>
 #include <limits.h>
+#include <stdlib.h>
 
 
 class RPN {
@@ -22,13 +24,13 @@ class RPN {
 		RPN(void);
 		~RPN();
 
-		bool	parsing(char **av);
+		void	parsing(char **av);
 
 	class SomeException : public std::exception
 	{
 		public:
 			virtual const char * what() const throw() {
-				return(_RED _BOLD "❌  Could not do.. euh.. whatever\n" _END);
+				return(_RED _BOLD "❌ Error in parameters\n" _END);
 			}
 	};
 };

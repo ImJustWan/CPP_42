@@ -1,5 +1,5 @@
 # Das Progamm
-NAME 				:=	btc
+NAME 				:=	RPN
 
 # Compiler
 CXX					:=	c++
@@ -8,11 +8,11 @@ CXXFLAGS			:=	-Wall -Werror -Wextra -std=c++98
 DEPS				:=	${OBJS:.o=.d}
 
 # Includes
-INC					:=	BitcoinExchange.hpp 
+INC					:=	RPN.hpp 
 
 # Sources	
 SRCS				:=	main.cpp \
-						BitcoinExchange.cpp
+						RPN.cpp
 		
 # Objects
 OBJS_PATH			:=	./objs

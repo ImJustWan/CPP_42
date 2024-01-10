@@ -18,26 +18,48 @@ RPN &RPN::operator=(RPN const &rhs) {
 	return *this;
 }
 
+int	RPN::operating(char ope, int fst, int snd)
+{
+	if (ope == '-')
+		return fst - snd;
+	if (ope == '*')
+		return fst * snd;
+	if (ope == '/')
+		return fst / snd;
+	return fst + snd;
+}
 
-void	RPN::parsing(char **av) {
+void	RPN::mathing(char **av) {
 
+	std::string			operators = "+-*/";
+	std::string			str;
 	std::stringstream	buf(av[1]);
-	std::string 		str;
-	int	num = 0;
-	int	ope = 0;
-	std::string operators = "+-*/";
-
-	while (!buf.eof())
+	int	top;
+	
+	while (buf >> str)
 	{
-		buf >> str;
 		if (str.length() != 1)
 			throw RPN::SomeException();
-		if (operators.find(str.at(0)) != std::string::npos)
-			ope++;
-		else if (std::isdigit(str.at(0)))
-			num++;
-		else 
+		if (std::isdigit(str.at(0)))
+			this->_rpnStack.push(str.at(0) - '0');
+		else if (operators.find(str.at(0)) != std::string::npos \
+			&& this->_rpnStack.size() >= 2)
+		{
+			if (this->_rpnStack.size() < 2)
+				throw RPN::SomeException();
+			top = this->_rpnStack.top();
+			this->_rpnStack.pop();
+			top = operating(str.at(0), this->_rpnStack.top(), top);
+			this->_rpnStack.pop();
+			this->_rpnStack.push(top);
+		}
+		else
 			throw RPN::SomeException();
+		// Uncomment for vizualisation
+		// std::cout << "Current input : " << str.at(0) << std::endl;
 	}
-	std::cout << "Num is : " << num << " and ope is : " << ope << std::endl;
+
+	if (this->_rpnStack.size() != 1)
+		throw RPN::SomeException();
+	std::cout << "Result : " << this->_rpnStack.top() << std::endl;
 }

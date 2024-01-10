@@ -10,7 +10,7 @@ int main(int ac, char **av)
 	
 	try {
 		RPN LaStack;
-		LaStack.parsing(av);
+		LaStack.mathing(av);
 	}
 	catch(const RPN::SomeException e) {
 		std::cout << e.what() << std::endl;

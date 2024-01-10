@@ -19,24 +19,20 @@ class RPN {
 		RPN(RPN &src);
 		RPN &operator=(RPN const & rhs);
 
+		int		operating(char ope, int fst, int snd);
+
 	public:
 
 		RPN(void);
 		~RPN();
 
-		void	parsing(char **av);
+		void	mathing(char **av);
 
 	class SomeException : public std::exception
 	{
 		public:
 			virtual const char * what() const throw() {
-				return(_RED _BOLD "❌ Error in parameters\n" _END);
+				return(_RED "❌ Error in parameters" _END);
 			}
 	};
 };
-
-
-//Exception
-// Error: not a positive number.
-// Error: bad input => 2001-42-42
-// Error: too large a number

@@ -2,8 +2,13 @@
 
 int main(int ac, char **av)
 {
-
 	(void)ac;
-	(void)av;
+	try {
+		PmergeMe LaStack;
+		LaStack.parsing(av);
+	}
+	catch(const std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	return 0;
 }

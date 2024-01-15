@@ -21,7 +21,7 @@ public:
 
 private:
 	int					_n;
-	static const int	_rawBits = CPP02/ex03/Fixed.hpp8;
+	static const int	_rawBits = 8;
 
 };
 

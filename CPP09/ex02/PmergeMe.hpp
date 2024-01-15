@@ -11,7 +11,6 @@
 #include <vector>
 
 
-
 class PmergeMe {
 	
 	private:
@@ -23,14 +22,17 @@ class PmergeMe {
 		PmergeMe(PmergeMe &src);
 		PmergeMe &operator=(PmergeMe const & rhs);
 
+		template <typename T>
+		void	fordJohnson(T &container);
+		int		JacobsthalNumber(int n);
+
 	public:
 
 		PmergeMe(void);
 		~PmergeMe();
 
 		void		parsing(char **av);
-		template <typename T>
-		void		pairSorting(T &container);
+
 
 	class ParsingError : public std::exception
 	{

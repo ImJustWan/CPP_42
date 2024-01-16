@@ -42,7 +42,7 @@ void	PmergeMe::parsing(char **av)
 	for (size_t i = 0; i < this->_arrVec.size(); i++)
 		std::cout << " " << this->_arrVec[i];
 
-	std::cout << "Vec : " << std::endl;
+	// std::cout << "\n\nVec : " << std::endl;
 	fordJohnson(this->_arrVec);
 	// std::cout << "Deq : " << std::endl;
 	// fordJohnson(this->_arrDeq);
@@ -61,27 +61,34 @@ template <typename T>
 void	PmergeMe::fordJohnson(T &ctnr)
 {
 	// std::cout << "recursiving" << std::endl;
-	for (size_t i = 0; i < ctnr.size() - 1; i += 2) {
-		if (ctnr[i] > ctnr[i + 1])
-		{
-			std::swap(ctnr[i], ctnr[i + 1]);
-		}
-	}
-	if (ctnr.size() == 1)
-	{
-		return;
-	}
 	T	main;
 	T	second;
+	if (ctnr.size() <= 1)
+		return;
+	for (size_t i = 0; i < ctnr.size() - 1; i += 2)
+		if (ctnr[i] > ctnr[i + 1])
+			std::swap(ctnr[i], ctnr[i + 1]);
 	if (ctnr.size() > 2)
 	{
 		for (size_t i = 0; i < ctnr.size() - 1; i += 2) {
 			main.push_back(ctnr[i]);
-		}
-		for (size_t i = 1; i < ctnr.size(); i += 2) {
-			second.push_back(ctnr[i]);
+			second.push_back(ctnr[i + 1]);
 		}
 		fordJohnson(main);
+		fordJohnson(second);
+		for (size_t i = 1; i < ctnr.size(); i += 2) {
+		}
+		for (int i = 0; i < (int)second.size(); i += 2)
+		{
+			int j = 0;
+			// int	index;
+			while (i > JacobsthalNumber(j++))
+				;
+			std::cout << "\nJcbstlnbr : " << JacobsthalNumber(j) << std::endl;
+			// std::cout << "Index is : " << index << std::endl;
+			// std::cout << "second[index] is : " << second[index] << std::endl;
+			// binarySearch(main, second[index]);
+		}
 	}
 
 
@@ -92,7 +99,27 @@ void	PmergeMe::fordJohnson(T &ctnr)
 
 }
 
-int		JacobsthalNumber(int n)
+template <typename T>
+void	PmergeMe::binarySearch(T& main, int value)
+{
+	unsigned int mid;
+	unsigned int left = 0;
+	unsigned int right = main.size() - 1;
+
+	std::cout << "value is : " << value << std::endl;
+
+	while (left <= right)
+	{
+		mid = left + (right - left) / 2;
+		if (value < main[mid])
+			right = mid - 1;
+		else
+			left = mid +1;
+	}
+	main.insert(main.begin() + left, value);
+}
+
+int		PmergeMe::JacobsthalNumber(int n)
 {
 	if (n == 0)
 		return 0;

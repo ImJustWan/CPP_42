@@ -25,6 +25,8 @@ class PmergeMe {
 		template <typename T>
 		void	fordJohnson(T &container);
 		int		JacobsthalNumber(int n);
+		template <typename T>
+		void	binarySearch(T& main, int element);
 
 	public:
 

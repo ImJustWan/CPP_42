@@ -27,16 +27,28 @@ class PmergeMe {
 		bool				odd;
 		int					_lonely;
 
-		ogPairs				*_ogPairs;
+
+		std::vector<ogPairs>		_ogVecPairs;
+		// std::deque<ogPairs>		*_ogDeqPairs;
 
 		PmergeMe(PmergeMe &src);
 		PmergeMe &operator=(PmergeMe const & rhs);
 
 		template <typename T>
-		void	pairedPairsPairing(T &ctnr);
+		void			print(std::string str, T &ctnr);
 		template <typename T>
-		void	binarySearch(T& main, int element, int index);
+		void			isSorted(T &ctnr);
+
+		template <typename T>
+		T				pairedPairsPairing(T &ctnr);
+
+		template <typename T>
+		void			binarySearch(T& main, int element);
+		
 		unsigned int	JacobsthalNumber(int n);
+
+		// template <typename T>
+		// void	comparedComparisonCompairing(T &ctnr);
 
 	public:
 

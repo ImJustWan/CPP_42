@@ -8,8 +8,9 @@
 #include <string.h>
 #include <stack>
 #include <limits.h>
+#include <algorithm>
 #include <stdlib.h>
-
+#include <stdio.h>
 
 class RPN {
 	

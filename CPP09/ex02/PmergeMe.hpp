@@ -11,6 +11,13 @@
 #include <vector>
 
 
+class ogPairs {
+	public:
+	int				ogIndex;
+	unsigned int	main;
+	unsigned int	second;
+};
+
 class PmergeMe {
 	
 	private:
@@ -18,15 +25,18 @@ class PmergeMe {
 		std::deque<int>		_arrDeq;
 		std::vector<int>	_arrVec;
 		bool				odd;
+		int					_lonely;
+
+		ogPairs				*_ogPairs;
 
 		PmergeMe(PmergeMe &src);
 		PmergeMe &operator=(PmergeMe const & rhs);
 
 		template <typename T>
-		void	fordJohnson(T &container);
-		int		JacobsthalNumber(int n);
+		void	pairedPairsPairing(T &ctnr);
 		template <typename T>
-		void	binarySearch(T& main, int element);
+		void	binarySearch(T& main, int element, int index);
+		unsigned int	JacobsthalNumber(int n);
 
 	public:
 
@@ -34,6 +44,14 @@ class PmergeMe {
 		~PmergeMe();
 
 		void		parsing(char **av);
+		template <typename T>
+		void			fordJohnson(T &container);
+		
+		template <typename T>
+		class lilpair {
+			T main;
+			T second;	
+		};
 
 
 	class ParsingError : public std::exception

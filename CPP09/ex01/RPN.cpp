@@ -31,7 +31,34 @@ int	RPN::operating(char ope, int fst, int snd)
 
 void	RPN::mathing(char **av) {
 
-	pop_pop_
+	std::string			operators = "+-*/";
+	std::string			input(av[1]);
+
+	input.erase(std::remove(input.begin(), input.end(), ' '), input.end());
+	std::stringstream	buf(input);
+	
+	int	top;
+	for (std::string::iterator it = input.begin(); it != input.end(); ++it)
+	{
+		std::string str(1, *it);
+		if (str.length() != 1)
+			throw RPN::SomeException();
+		if (std::isdigit(str.at(0)))
+			this->_rpnStack.push(str.at(0) - '0');
+		else if (operators.find(str.at(0)) != std::string::npos \
+			&& this->_rpnStack.size() >= 2)
+		{
+			if (this->_rpnStack.size() < 2)
+				throw RPN::SomeException();
+			top = this->_rpnStack.top();
+			this->_rpnStack.pop();
+			top = operating(str.at(0), this->_rpnStack.top(), top);
+			this->_rpnStack.pop();
+			this->_rpnStack.push(top);
+		}
+		else
+			throw RPN::SomeException();
+	}
 
 	if (this->_rpnStack.size() != 1)
 		throw RPN::SomeException();

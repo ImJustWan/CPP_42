@@ -2,7 +2,6 @@
 
 int main(int ac, char **av)
 {
-	(void)ac;
 	try {
 		PmergeMe LaStack;
 		LaStack.parsing(ac, av);

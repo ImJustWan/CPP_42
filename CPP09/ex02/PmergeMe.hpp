@@ -13,6 +13,7 @@
 #include <vector>
 #include <sys/time.h>
 
+
 template <typename T>
 struct ogPairs {
 	unsigned int	_main;
@@ -27,7 +28,6 @@ class PmergeMe {
 	private:
 
 		std::deque<int>		_arrDeq;
-		std::list<int>		_arrList;
 		std::vector<int>	_arrVec;
 
 		PmergeMe(PmergeMe &src);

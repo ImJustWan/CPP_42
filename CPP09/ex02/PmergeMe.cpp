@@ -25,7 +25,6 @@ unsigned long long int getTime()
 	return (tv.tv_sec * 1000000 + tv.tv_usec);
 }
 
-
 template <typename T>
 void	PmergeMe::print(std::string str, T &ctnr)
 {
@@ -36,7 +35,7 @@ void	PmergeMe::print(std::string str, T &ctnr)
 		if (i != ctnr.size() - 1)
 			std::cout << " ";
 	}
-	std::cout << std::endl;
+	std::cout << "\n" << std::endl;
 }
 
 template <typename T>
@@ -46,19 +45,20 @@ void	PmergeMe::isSorted(T &ctnr)
 	{
 		if (ctnr[i] > ctnr[i+1])
 		{
-			std::cout << _RED _BOLD "THIS IS NOT SORTED" _END << std::endl;
+			std::cout << _RED _BOLD "NOT SORTED ❌" _END << std::endl;
 			return ;
 		}
 	}
-	std::cout<< _AQUAMARINE _BOLD "SORTED" _END << std::endl;
+	std::cout<< _EMMERALD _BOLD "SORTED ✅" _END << std::endl;
 }
 
-
-void	PmergeMe::parsing(char **av)
+void	PmergeMe::parsing(int ac, char **av)
 {
 	std::string			str;
 	double				tmp;
 	
+	if (ac == 1)
+		throw PmergeMe::ParsingError();
 	for (int i = 1; av[i]; i++)
 	{
 		tmp = atoi(av[i]);
@@ -68,42 +68,44 @@ void	PmergeMe::parsing(char **av)
 			throw PmergeMe::DuplicateError();
 		this->_arrVec.push_back(tmp);
 		this->_arrDeq.push_back(tmp);
+
 		// Uncomment for vizualisation
-		// std::cout << "Current input : " << str.at(0) << std::endl;
+		// std::cout << "Current input : " << tmp << std::endl;
 	}
 }
 
 void	PmergeMe::algorithming()
 {
-	// print("Print Vec before : ", this->_arrVec);
-	// print("Print Deq before : ", this->_arrDeq);
-
 	unsigned long long int time;
-
-	std::cout << "\nBefore" << std::endl;
+	
+	print("Before : ", this->_arrVec);
+	std::cout << "this->_arrVec : ";
 	isSorted(this->_arrVec);
-	isSorted(this->_arrDeq);
 
-	// std::cout << "\nFord-Johnson" << std::endl;
 	time = getTime();
 	fordJohnson(this->_arrVec);
 	time = getTime() - time;
-	std::cout << "\nProcess time with vector : " << time  << std::endl;
+	
+	print("\nAfter : ", this->_arrVec);
 
+	std::cout << "\nTime to process a range of " << this->_arrVec.size() << " elements with std::vector : " _BOLD _SALMON;
+	std::cout << time << " us" _END << std::endl;
+
+	
 	time = getTime();
 	fordJohnson(this->_arrDeq);
 	time = getTime() - time;
-	std::cout << "\nProcess time with deque : " << time  << std::endl;
+
+	std::cout << "Time to process a range of " << this->_arrDeq.size() << " elements with std::deque : " _BOLD _SALMON;
+	std::cout << time << " us\n" _END << std::endl;
 
 
-
-	std::cout << "\nAfter" << std::endl;
+	std::cout << _BOLD _ITALIC _GREY "\nAfter" _END << std::endl;
+	std::cout << "this->_arrVec : ";
 	isSorted(this->_arrVec);
+	std::cout << "this->_arrDeq : ";
 	isSorted(this->_arrDeq);
-	// std::cout << "\n\nFinal Vec size : " << this->_arrVec.size();
-	// print("Print Vec after : ", this->_arrVec);
-
-	// std::cout << "\n\nFinal Deq size : " << this->_arrDeq.size();
+	std::cout << std::endl;
 	// print("Print Deq after : ", this->_arrDeq);
 }
 

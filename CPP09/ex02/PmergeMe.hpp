@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string>
 #include <deque>
+#include <list>
 #include <vector>
 #include <sys/time.h>
 
@@ -25,6 +26,7 @@ class PmergeMe {
 	private:
 
 		std::deque<int>		_arrDeq;
+		std::list<int>		_arrList;
 		std::vector<int>	_arrVec;
 
 		PmergeMe(PmergeMe &src);
@@ -50,7 +52,7 @@ class PmergeMe {
 		PmergeMe(void);
 		~PmergeMe();
 
-		void		parsing(char **av);
+		void		parsing(int ac, char **av);
 		void		algorithming();
 
 

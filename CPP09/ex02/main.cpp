@@ -5,7 +5,7 @@ int main(int ac, char **av)
 	(void)ac;
 	try {
 		PmergeMe LaStack;
-		LaStack.parsing(av);
+		LaStack.parsing(ac, av);
 		LaStack.algorithming();
 	}
 	catch(const std::exception &e) {

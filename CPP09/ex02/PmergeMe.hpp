@@ -9,13 +9,15 @@
 #include <string>
 #include <deque>
 #include <vector>
+#include <sys/time.h>
 
+template <typename T>
+struct ogPairs {
+	unsigned int	_main;
+	unsigned int	_second;
+	bool			_inserted;
 
-class ogPairs {
-	public:
-	int				ogIndex;
-	unsigned int	main;
-	unsigned int	second;
+	ogPairs(int main, int second) : _main(main), _second(second), _inserted(false){}
 };
 
 class PmergeMe {
@@ -24,12 +26,6 @@ class PmergeMe {
 
 		std::deque<int>		_arrDeq;
 		std::vector<int>	_arrVec;
-		bool				odd;
-		int					_lonely;
-
-
-		std::vector<ogPairs>		_ogVecPairs;
-		// std::deque<ogPairs>		*_ogDeqPairs;
 
 		PmergeMe(PmergeMe &src);
 		PmergeMe &operator=(PmergeMe const & rhs);
@@ -40,15 +36,14 @@ class PmergeMe {
 		void			isSorted(T &ctnr);
 
 		template <typename T>
-		T				pairedPairsPairing(T &ctnr);
-
+		void			fordJohnson(T &container);
 		template <typename T>
 		void			binarySearch(T& main, int element);
+		template <typename T>
+		int				findMatchingOne(unsigned int value, std::vector<ogPairs<T> >& ogPairing);
 		
 		unsigned int	JacobsthalNumber(int n);
 
-		// template <typename T>
-		// void	comparedComparisonCompairing(T &ctnr);
 
 	public:
 
@@ -56,14 +51,7 @@ class PmergeMe {
 		~PmergeMe();
 
 		void		parsing(char **av);
-		template <typename T>
-		void			fordJohnson(T &container);
-		
-		template <typename T>
-		class lilpair {
-			T main;
-			T second;	
-		};
+		void		algorithming();
 
 
 	class ParsingError : public std::exception

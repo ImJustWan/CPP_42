@@ -6,6 +6,7 @@ int main(int ac, char **av)
 	try {
 		PmergeMe LaStack;
 		LaStack.parsing(av);
+		LaStack.algorithming();
 	}
 	catch(const std::exception &e) {
 		std::cout << e.what() << std::endl;

@@ -41,8 +41,6 @@ void	RPN::mathing(char **av) {
 	for (std::string::iterator it = input.begin(); it != input.end(); ++it)
 	{
 		std::string str(1, *it);
-		if (str.length() != 1)
-			throw RPN::SomeException();
 		if (std::isdigit(str.at(0)))
 			this->_rpnStack.push(str.at(0) - '0');
 		else if (operators.find(str.at(0)) != std::string::npos \

@@ -111,7 +111,7 @@ Fixed &Fixed::operator++() {
 	return *this;
 }
 
-Fixed Fixed::operator++(int) {
+Fixed Fixed::operator++(int) 	{
 	Fixed tmp = *this;
 	++this->_n;
 	return tmp;

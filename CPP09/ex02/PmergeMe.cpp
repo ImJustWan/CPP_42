@@ -18,6 +18,14 @@ PmergeMe &PmergeMe::operator=(PmergeMe const &rhs) {
 	return *this;
 }
 
+unsigned long long int getTime()
+{
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000000 + tv.tv_usec);
+}
+
+
 template <typename T>
 void	PmergeMe::print(std::string str, T &ctnr)
 {
@@ -42,7 +50,7 @@ void	PmergeMe::isSorted(T &ctnr)
 			return ;
 		}
 	}
-	std::cout << std::endl;
+	std::cout<< _AQUAMARINE _BOLD "SORTED" _END << std::endl;
 }
 
 
@@ -63,29 +71,40 @@ void	PmergeMe::parsing(char **av)
 		// Uncomment for vizualisation
 		// std::cout << "Current input : " << str.at(0) << std::endl;
 	}
+}
 
-	
-	std::cout << "\nStart Vec size : " << this->_arrVec.size();
-	print("Print Vec before : ", this->_arrVec);
-	isSorted(this->_arrVec);
+void	PmergeMe::algorithming()
+{
+	// print("Print Vec before : ", this->_arrVec);
+	// print("Print Deq before : ", this->_arrDeq);
 
-	fordJohnson(this->_arrVec);
+	unsigned long long int time;
 
-	std::cout << "\nStart Deq size : " << this->_arrDeq.size();
-	print("Print Deq before : ", this->_arrDeq);
-	fordJohnson(this->_arrDeq);
-	// std::cout << "odd ? " << this->odd << std::endl;
-	// std::cout << "Size of vector : " << this->_arrVec.size() << std::endl;
-	// std::cout << "Size of deque : " << this->_arrDeq.size() << std::endl;
-
+	std::cout << "\nBefore" << std::endl;
 	isSorted(this->_arrVec);
 	isSorted(this->_arrDeq);
-	std::cout << "\n\nFinal Vec size : " << this->_arrVec.size();
-	print("Print Vec after : ", this->_arrVec);
 
-	std::cout << "\n\nFinal Deq size : " << this->_arrDeq.size();
-	print("Print Deq after : ", this->_arrDeq);
+	// std::cout << "\nFord-Johnson" << std::endl;
+	time = getTime();
+	fordJohnson(this->_arrVec);
+	time = getTime() - time;
+	std::cout << "\nProcess time with vector : " << time  << std::endl;
 
+	time = getTime();
+	fordJohnson(this->_arrDeq);
+	time = getTime() - time;
+	std::cout << "\nProcess time with deque : " << time  << std::endl;
+
+
+
+	std::cout << "\nAfter" << std::endl;
+	isSorted(this->_arrVec);
+	isSorted(this->_arrDeq);
+	// std::cout << "\n\nFinal Vec size : " << this->_arrVec.size();
+	// print("Print Vec after : ", this->_arrVec);
+
+	// std::cout << "\n\nFinal Deq size : " << this->_arrDeq.size();
+	// print("Print Deq after : ", this->_arrDeq);
 }
 
 template <typename T>
@@ -101,9 +120,13 @@ void	PmergeMe::fordJohnson(T &ctnr)
 		lonely = ctnr.back();
 	if (ctnr.size() > 2)
 	{
+		std::vector<ogPairs<int> > ogPairing;
+
 		for (size_t i = 0; i < ctnr.size() - 1; i += 2) {
 			if (ctnr[i] > ctnr[i + 1])
 				std::swap(ctnr[i], ctnr[i + 1]);
+			ogPairs<int> pair(ctnr[i], ctnr[i + 1]);
+			ogPairing.push_back(pair);
 			main.push_back(ctnr[i]);
 			second.push_back(ctnr[i + 1]);
 		}
@@ -111,15 +134,33 @@ void	PmergeMe::fordJohnson(T &ctnr)
 		for (size_t i = 0; i < main.size() - 1; i += 2)
 			if (main[i] > main[i + 1])
 				std::swap(main[i], main[i + 1]);
+
 		fordJohnson(main);
 
-		// NEXT IMPROVEMENT
-		// Instead of inserting linearly from second
-		// Insert next THE ELEMENT THAT WAS PAIRED 
-		// with the (Jacobstahl index) of main
-		for (unsigned int i = 0; i < second.size(); i++)
-			binarySearch(main, second[i]);
-		
+		int size = ctnr.size();
+		if (_odd == true)
+			size--;
+
+		int index = 0;
+		int oldJcb = 0;
+		while ((int)main.size() != size)
+		{
+			int next = 0;
+			int jcb = JacobsthalNumber(index);
+			if (jcb > (int)main.size())
+				jcb = main.size();
+			while (jcb != oldJcb && jcb >= 0)
+			{
+				if (jcb < (int)main.size())
+					next = findMatchingOne(main[jcb], ogPairing);
+				if (next != 0)
+					binarySearch(main, next);
+				jcb--;
+			}
+			oldJcb = JacobsthalNumber(index);
+			index++;
+		}
+
 		if (_odd == true)
 			binarySearch(main, lonely);
 		ctnr = main;
@@ -156,36 +197,21 @@ unsigned int	PmergeMe::JacobsthalNumber(int n)
 	return JacobsthalNumber(n - 1) + 2 * JacobsthalNumber(n - 2);
 }
 
-// template <typename T>
-// T	PmergeMe::pairedPairsPairing(T &ctnr)
-// {
-// 	T	main;
-// 	// T	second;
-// 	if (ctnr.size() <= 1)
-// 		return ctnr;
-// 	for (size_t i = 0; i < ctnr.size() - 1; i += 2)
-// 		if (ctnr[i] < ctnr[i + 1])
-// 			std::swap(ctnr[i], ctnr[i + 1]);
-// 	this->odd = (this->_arrVec.size() % 2 != 0);
-// 	if (odd == true)
-// 		this->_lonely = this->_arrVec.back();
-// 	else
-// 		this->_lonely = 0;
+template <typename T>
+int	PmergeMe::findMatchingOne(unsigned int value, std::vector<ogPairs<T> >& ogPairing)
+{
+	
+	if (ogPairing.empty())
+		return 0;
 
-// 	int j = 0;
-// 	for (size_t i = 0; i < ctnr.size() / 2; i++) {
-// 		this->_ogVecPairs[i].ogIndex = i;
-// 		this->_ogVecPairs[i].main = ctnr[j];
-// 		this->_ogVecPairs[i].second = ctnr[j + 1];
-// 		main.push_back(ctnr[j]);
-// 		j += 2;
-// 	}
-
-// 	std::cout << "\n" << std::endl;
-// 	for (size_t i = 0; i < ctnr.size() / 2; i++)
-// 	{
-// 		std::cout << "Pair[" << i << "] : main [" << this->_ogVecPairs[i].main;
-// 		std::cout << "] && second [" << this->_ogVecPairs[i].second << "]" << std::endl;
-// 	}
-// 	return main;
-// }
+	for (size_t i = 0; i < ogPairing.size(); i++)
+	{
+		
+		if (ogPairing[i]._main == value && ogPairing[i]._inserted == false)
+		{
+			ogPairing[i]._inserted = true;
+			return ogPairing[i]._second;
+		}
+	}
+	return 0;
+}

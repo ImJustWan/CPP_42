@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 #include <algorithm>
 #include <stdlib.h>
 #include <string>
@@ -40,7 +41,7 @@ class PmergeMe {
 		template <typename T>
 		void			fordJohnson(T &container);
 		template <typename T>
-		void			binarySearch(T& main, int element);
+		void			binarySearchInsertion(T& main, int element);
 		template <typename T>
 		int				findMatchingOne(unsigned int value, std::vector<ogPairs<T> >& ogPairing);
 		

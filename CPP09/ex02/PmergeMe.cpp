@@ -88,17 +88,16 @@ void	PmergeMe::algorithming()
 	
 	print("\nAfter : ", this->_arrVec);
 
-	std::cout << "\nTime to process a range of " << this->_arrVec.size() << " elements with std::vector : " _BOLD _SALMON;
-	std::cout << time << " us" _END << std::endl;
+	std::cout << "\nTime to process a range of " << this->_arrVec.size();
+	std::cout << " elements with std::vector : " _BOLD _SALMON << time << " us" _END << std::endl;
 
 	
 	time = getTime();
 	fordJohnson(this->_arrDeq);
 	time = getTime() - time;
 
-	std::cout << "Time to process a range of " << this->_arrDeq.size() << " elements with std::deque : " _BOLD _SALMON;
-	std::cout << time << " us\n" _END << std::endl;
-
+	std::cout << "\nTime to process a range of " << this->_arrDeq.size();
+	std::cout << " elements with std::deque : " _BOLD _SALMON << time << " us" _END << std::endl;
 
 	std::cout << _BOLD _ITALIC _GREY "\nAfter" _END << std::endl;
 	std::cout << "this->_arrVec : ";
@@ -109,38 +108,65 @@ void	PmergeMe::algorithming()
 	// print("Print Deq after : ", this->_arrDeq);
 }
 
+/*
+
+	Detailed steps :
+		
+		➤ odd is used to check if the container sent has an odd or even size.
+			If odd, last element is saved in _lonely
+		
+		➤ container is then divided into two smaller containers
+			std::swap ensures that for each pair, the larger value goes into main, the other in second
+			ogPairing saves each pair to allow us to fetch the matching part later
+		
+		➤ container main (larger elements of each pair) is then recursively sorted using this same function
+		
+		➤ using the Jacobsthal numbers (0, 1, 1, 3, 5, 11, etc...) we determine at the element of main for which
+			we have to fetch the corresponding part (done in findMatchingOne)
+		
+		➤ once that number (next) is found in the second container, it is then inserted
+			using the binarySearchInsertion function for efficiency.
+		
+		➤ we then decrement the index of Jacobsthal and repeat the binarySearchInsertion/insertion until previous index
+			(At 3, we do 3->2. At 11, we do 11->10->9->8->7->6 etc)
+		
+		➤ the variable size is used to handle odd-sized containers
+			○ If even, the binarySearchInsertion continues until main.size() == ctnr.size() 
+				(every element of second has been pushed back into main)
+			○ If odd, we stop at ctnr.size() - 1, and then handle the last element saved in lonely
+		
+*/
+
 template <typename T>
 void	PmergeMe::fordJohnson(T &ctnr)
 {
 	T main;
 	T second;
-	bool _odd;
+	bool odd;
 	int lonely;
 
-	_odd = (ctnr.size() % 2 != 0);
-	if (_odd == true)
+	// std::cout << _BOLD _GREY _ITALIC "\nNew recursive !\n" _END << std::endl;
+	odd = (ctnr.size() % 2 != 0);
+	if (odd == true)
 		lonely = ctnr.back();
 	if (ctnr.size() > 2)
 	{
 		std::vector<ogPairs<int> > ogPairing;
 
 		for (size_t i = 0; i < ctnr.size() - 1; i += 2) {
-			if (ctnr[i] > ctnr[i + 1])
+			if (ctnr[i] < ctnr[i + 1])
 				std::swap(ctnr[i], ctnr[i + 1]);
 			ogPairs<int> pair(ctnr[i], ctnr[i + 1]);
 			ogPairing.push_back(pair);
 			main.push_back(ctnr[i]);
 			second.push_back(ctnr[i + 1]);
+			// std::cout << "ogPair[" << i / 2 << "] : [ " << ctnr[i] << " : " << ctnr[i + 1] << " ]" << std::endl; 
 		}
-
-		for (size_t i = 0; i < main.size() - 1; i += 2)
-			if (main[i] > main[i + 1])
-				std::swap(main[i], main[i + 1]);
 
 		fordJohnson(main);
 
 		int size = ctnr.size();
-		if (_odd == true)
+		if (odd == true)
 			size--;
 
 		int index = 0;
@@ -156,38 +182,58 @@ void	PmergeMe::fordJohnson(T &ctnr)
 				if (jcb < (int)main.size())
 					next = findMatchingOne(main[jcb], ogPairing);
 				if (next != 0)
-					binarySearch(main, next);
+					binarySearchInsertion(main, next);
 				jcb--;
 			}
 			oldJcb = JacobsthalNumber(index);
 			index++;
 		}
 
-		if (_odd == true)
-			binarySearch(main, lonely);
+		if (odd == true)
+			binarySearchInsertion(main, lonely);
 		ctnr = main;
 	}
 }
 
+/*
+
+	Detailed steps:
+
+	➤ The function performs a binary search within the sorted container 'main' to find the lower_bound of the 'value'.
+	
+	➤ start and end of the container
+	
+	➤ in each iteration : mid marks the half between start and end
+
+	➤ Comparison between mid and the value we're looking for
+		○ if mid < value
+			- start = mid + 1
+			-> we're now looking in the upper half
+		○ else
+			- end = mid
+			-> we're now looking in the lower half
+	
+	➤ once start reached end, we've determined the position to insert value
+
+*/
+
 
 template <typename T>
-void	PmergeMe::binarySearch(T& main, int value)
+void	PmergeMe::binarySearchInsertion(T& main, int value)
 {
-	// Find lower_bound of value within main
-
-	typename T::iterator it = main.begin();
+	typename T::iterator start = main.begin();
 	typename T::iterator end = main.end();
 	typename T::iterator mid;
 	
-	while (it != end)
+	while (start != end)
 	{
-		mid = it + (std::distance(it, end) / 2);
+		mid = start + (std::distance(start, end) / 2);
 		if (*mid < value)
-			it = mid + 1;
+			start = mid + 1;
 		else
 			end = mid;
 	}
-	main.insert(it, value);
+	main.insert(start, value);
 }
 
 unsigned int	PmergeMe::JacobsthalNumber(int n)

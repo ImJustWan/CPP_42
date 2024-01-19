@@ -36,4 +36,11 @@ class RPN {
 				return(_RED "❌ Error in parameters" _END);
 			}
 	};
+	class DivisionByZero : public std::exception
+	{
+		public:
+			virtual const char * what() const throw() {
+				return(_RED "❌ Division by zero" _END);
+			}
+	};
 };

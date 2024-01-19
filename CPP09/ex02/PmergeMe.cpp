@@ -163,6 +163,10 @@ void	PmergeMe::fordJohnson(T &ctnr)
 			// std::cout << "ogPair[" << i / 2 << "] : [ " << ctnr[i] << " : " << ctnr[i + 1] << " ]" << std::endl; 
 		}
 
+		for (size_t i = 0; i < main.size() - 1; i += 2)
+			if (main[i] > main[i + 1])
+				std::swap(main[i], main[i + 1]);
+
 		fordJohnson(main);
 
 		int size = ctnr.size();

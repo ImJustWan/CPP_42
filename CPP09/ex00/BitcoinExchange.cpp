@@ -53,11 +53,11 @@ bool	BitcoinExchange::checkDate(std::string date)
 {
 	std::istringstream	dateStream(date);
 	int					year, month, day;
-	char				dash;
+	char				dash1, dash2;
 	bool				ret = true;
 
-	dateStream >> year >> dash>> month >> dash >> day;
-	if (dateStream.fail() || dash != '-')
+	dateStream >> year >> dash1 >> month >> dash2 >> day;
+	if (dateStream.fail() || dash1 != '-' || dash2 != '-')
 		ret = false;
 	if (year < 2009 || year > 2024 || month < 1 || month > 12 || day < 1 || day > 31)
 		ret = false;

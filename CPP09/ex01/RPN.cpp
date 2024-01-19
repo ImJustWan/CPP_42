@@ -25,7 +25,11 @@ int	RPN::operating(char ope, int fst, int snd)
 	if (ope == '*')
 		return fst * snd;
 	if (ope == '/')
+	{
+		if (snd == 0)
+			throw DivisionByZero();
 		return fst / snd;
+	}
 	return fst + snd;
 }
 
@@ -50,9 +54,14 @@ void	RPN::mathing(char **av) {
 				throw RPN::SomeException();
 			top = this->_rpnStack.top();
 			this->_rpnStack.pop();
-			top = operating(str.at(0), this->_rpnStack.top(), top);
-			this->_rpnStack.pop();
-			this->_rpnStack.push(top);
+			try {
+				top = operating(str.at(0), this->_rpnStack.top(), top);
+				this->_rpnStack.pop();
+				this->_rpnStack.push(top);
+			}
+			catch(const RPN::DivisionByZero &e) {
+					throw RPN::DivisionByZero();
+			}
 		}
 		else
 			throw RPN::SomeException();
